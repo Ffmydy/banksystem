@@ -1,0 +1,2 @@
+<result type="chain">login</result>//直接找到login
+flag = userFacade.login(user)//检验用户的账号和密码是否正确，返回 布尔型
