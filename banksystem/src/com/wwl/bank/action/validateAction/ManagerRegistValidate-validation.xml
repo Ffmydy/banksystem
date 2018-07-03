@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="userInfo.userName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.name.null")}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">[\u4e00-\u9fa5]{2,5}</param>
+			<message>${getText("error.reg.nameError")}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">5</param>
+			<param name="trim">true</param>
+			<message>${getText("error.reg.username.lengthError")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.passwd.null")}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<param name="trim">true</param>
+			<message>${getText("error.reg.passwd.lengthError")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.userAge">
+		<field-validator type="required">
+			<message>${getText("error.reg.userAge.null")}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">1</param>
+			<param name="max">150</param>
+			<message>${getText("error.reg.userAge.ageError")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.idCard">
+		<field-validator type="regex">
+			<param name="expression">\d{18}|\d{15}</param>
+			<message>${getText("error.reg.idCard.idCardError")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.userSex">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.userSex.null")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.tel">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.tel.null")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.city">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.city.null")}</message>
+		</field-validator>
+	
+	</field>
+	<field name="userInfo.address">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.address.null")}</message>
+			</field-validator>
+	</field>
+</validators>
