@@ -1,0 +1,21 @@
+<%@ page contentType="text/html; charset=GBK"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<html>
+	<body>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center>
+			提醒余额不足，请确认取款金额后再次操作
+			<br>
+			您的当前余额为：
+			<a><s:property value="balance" /> </a>
+			<a><s:property value="balance.intValue()" /> </a>
+			<br>
+			<a href="fetch.jsp">返回</a>
+		</center>
+	</body>
+</html>

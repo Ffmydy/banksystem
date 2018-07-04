@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="money">
+		<field-validator type="required">
+			<message>${getText("error.money.null")}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="max">10000</param>
+			<param name="min">1</param>
+			<message>${getText("error.money.error")}</message>
+		</field-validator>
+	</field>
+</validators>
