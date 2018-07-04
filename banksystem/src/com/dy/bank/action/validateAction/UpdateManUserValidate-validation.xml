@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="userInfo.password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.passwd.null")}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<param name="trim">true</param>
+			<message>${getText("error.reg.passwd.lengthError")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.tel">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.tel.null")}</message>
+		</field-validator>
+	</field>
+	<field name="userInfo.city">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.city.null")}</message>
+		</field-validator>
+	
+	</field>
+	<field name="userInfo.address">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.reg.address.null")}</message>
+			</field-validator>
+	</field>
+</validators>
