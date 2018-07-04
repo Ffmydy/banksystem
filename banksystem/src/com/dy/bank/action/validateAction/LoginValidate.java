@@ -1,4 +1,4 @@
-package com.wwl.bank.action.validateAction;
+package com.dy.bank.action.validateAction;
 
 import com.opensymphony.xwork2.ActionSupport;
 

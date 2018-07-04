@@ -1,11 +1,11 @@
-package com.wwl.bank.action.validateAction;
+package com.dy.bank.action.validateAction;
 
 
+import com.dy.bank.domain.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
-import com.wwl.bank.domain.UserInfo;
 
 @SuppressWarnings("serial")
-public class RegistValidate2 extends ActionSupport {
+public class RegistValidate extends ActionSupport {
 	private UserInfo userInfo;
 
 	public UserInfo getUserInfo() {

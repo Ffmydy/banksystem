@@ -1,10 +1,10 @@
-package com.wwl.bank.action;
+package com.dy.bank.action;
 
-import java.io.ByteArrayInputStream;  
+import java.io.ByteArrayInputStream;
 
+import com.dy.bank.util.RandomNumUtil;
 import com.opensymphony.xwork2.ActionContext;  
 import com.opensymphony.xwork2.ActionSupport;
-import com.wwl.bank.util.RandomNumUtil;
 
 @SuppressWarnings("serial")
 public class RandomAction extends ActionSupport{  

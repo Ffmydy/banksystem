@@ -1,15 +1,15 @@
-package com.wwl.bank.action;
+package com.dy.bank.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.dy.bank.domain.UserInfo;
+import com.dy.bank.service.UserFacade;
+import com.dy.bank.service.UserFacadeImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.wwl.bank.domain.UserInfo;
-import com.wwl.bank.service.UserFacade;
-import com.wwl.bank.service.UserFacadeImpl;
 
 
 @SuppressWarnings("serial")
