@@ -20,7 +20,7 @@
 				<%-- <s:hidden name="userInfo.userNO" value="%{#userInfo.userNO}" />
 				用户帐号:<s:property value="userInfo.userNO" /> --%>
 				
-				<s:textfield name="userInfo.userNO" label="用户账号" />
+				<%--<s:textfield name="userInfo.userNO" label="用户账号" /> --%>
 				<%-- <s:password name="userInfo.password" label="用户密码" /> --%>
 				<s:textfield name="userInfo.tel" label="联系电话" />
 				<s:textfield name="userInfo.city" label="居住城市" />

@@ -10,5 +10,5 @@
 		<center>
 			提醒成功注销帐户！！！
 		</center>
-	</body>
+	</body> 
 </html>
