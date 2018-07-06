@@ -183,11 +183,13 @@ public class UserDAOImpl implements UserDAO {
 				+ user.getAddress() + "'";*/
 		String sql = "update userInfo set tel ='" + user.getTel()
 				+ "',city='" + user.getCity() + "',userAddress='"
-				+ user.getAddress() + "'";
+				+ user.getAddress() + "'where userNO='" + userNO
+				+ "'";
 		try {
 			conn = DBConnection.getDBC();
 			conn.setAutoCommit(false);
 			st = conn.createStatement();
+			System.out.println(sql+"======");
 			st.executeUpdate(sql);
 			conn.commit();
 		} catch (Exception e) {

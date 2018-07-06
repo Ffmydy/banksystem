@@ -14,10 +14,6 @@
 			<table>
 				<tr>
 					<td>
-						√‹¬Î£∫
-					</td>
-					<td>
-						<s:property value="userInfo.password" />
 					</td>
 				</tr>
 				<tr>
