@@ -1,0 +1,200 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	<constant name="struts.custom.i18n.resources" value="globalMessages"/>
+	
+	<package name="default" extends="struts-default">
+	<!-- 配置SessionInterceptor拦截器 -->
+	<interceptors>
+		<interceptor name="SessionInterceptor" class="com.dy.bank.action.interceptor.SessionInterceptor"/>
+	</interceptors>	
+	<global-results>
+		<result name="loginPage">/login.jsp</result>
+		<result name="abilityError">/abilityError.jsp</result>
+		<result name="Error">/Error.jsp</result>
+	</global-results>
+		<!-- <action name="show" class="com.dy.bank.action.ShowAction" method="toShow">  
+            <result name="success">queryByPage.jsp</result>  
+            <result name="error">Error.jsp</result>  
+        </action> -->
+        <action name="show" class="com.dy.bank.action.UserAction" method="queryByPage">  
+            <result name="selectUser">queryByPage.jsp</result>  
+            <result name="Error">Error.jsp</result>  
+        </action>
+		<!-- Random验证码 -->  
+		<action name="rand" class="com.dy.bank.action.RandomAction">     
+       		<result type="stream">     
+            	<param name="contentType">image/jpeg</param>     
+            	<param name="inputName">inputStream</param>     
+       		</result>  
+   		</action>
+		<action name="loginValidate" class="com.dy.bank.action.validateAction.LoginValidate">
+			<result name="input">/login.jsp</result>
+			<result type="chain">login</result>
+		</action>
+		<action name="login" class="com.dy.bank.action.LoginAction" method="login">
+			<!-- <result name="managerLogin">/managerPage.jsp</result> -->
+			<result name="loginSuccess">/trade.jsp</result>
+			<result name="bothError">/bothError.jsp</result>
+			<result name="loginError">/loginError.jsp</result>
+			<result name="verError">/verError.jsp</result>
+			<result name="managerLogin" type="chain">Manlogin</result>
+		</action>
+		<action name="Manlogin" class="com.dy.bank.action.LoginAction" method="Manlogin">
+			<result name="ManloginSuccess">/ManloginSuccess.jsp</result>
+			<result name="bothError">/bothError.jsp</result>
+			<result name="loginError">/loginError.jsp</result>
+			<result name="verError">/verError.jsp</result>
+		</action>
+		<action name="regValidate" class="com.dy.bank.action.validateAction.RegistValidate">
+			<result name="input">/regist.jsp</result>
+			<result type="chain">regist</result>
+		</action>
+		<action name="regValidate2" class="com.dy.bank.action.validateAction.RegistValidate2">
+			<result name="input">/addUserPage.jsp</result>
+			<result type="chain">addUserInfo</result>
+		</action>
+		<action name="ManRegValidate" class="com.dy.bank.action.validateAction.ManagerRegistValidate">
+			<result name="input">/ManagerRegist.jsp</result>
+			<result type="chain">ManagerRegist</result>
+		</action>
+		<action name="regist" class="com.dy.bank.action.UserAction" method="regist">
+			<result name="invalid.token">/wrong.jsp</result>
+			<result name="registSuccess">/registSuccess.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="tokenSession"/>
+		</action>
+		<action name="ManagerRegist" class="com.dy.bank.action.UserAction" method="ManagerRegist">
+			<result name="invalid.token">/wrong.jsp</result>
+			<result name="ManRegSuccess">/ManRegSuccess.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="tokenSession"/>
+		</action>
+		<action name="addUserInfo" class="com.dy.bank.action.UserAction" method="addUserInfo">
+			<result name="invalid.token">/wrong.jsp</result>
+			<result name="registSuccess2">/addUserSuccess.jsp</result>
+			<!-- <interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="tokenSession"/> -->
+		</action>
+		<action name="smoneyValidate" class="com.dy.bank.action.validateAction.MoneyValidate">
+			<result name="input">/save.jsp</result>
+			<result type="chain">saveMoney</result>
+		</action>
+		<action name="saveMoney" class="com.dy.bank.action.TradeAction" method="saveMoney">
+			<result name="invalid.token">/wrong.jsp</result>
+			<result name="saveSuccess" type="chain">selectBalance</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="tokenSession"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="fmoneyValidate" class="com.dy.bank.action.validateAction.MoneyValidate">
+			<result name="input">/fetch.jsp</result>
+			<result type="chain">fetchMoney</result>
+		</action>
+		<action name="fetchMoney" class="com.dy.bank.action.TradeAction" method="fetchMoney">
+			<result name="invalid.token">/wrong.jsp</result>
+			<result name="fetchSuccess" type="chain">selectBalance</result>
+			<result name="fetchError">/fechError.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="tokenSession"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="selectAbDete" class="com.dy.bank.action.TradeAction" method="selectAbDetection">
+			<result name="selectAbDete">/selectAbDete.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="selectBalance" class="com.dy.bank.action.TradeAction" method="selectBalance">
+			<result name="selectBalance">/tradeSuccess.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="selectTradeInfo" class="com.dy.bank.action.TradeAction" method="tradeInfo">
+			<result name="selectTradeInfo">/tradeInfo.jsp</result>
+		</action>
+		<action name="selectUserTradeInfo" class="com.dy.bank.action.TradeAction" method="selectUserTradeInfo">
+			<result name="selectUserTradeInfo">/selectUserTradeInfo.jsp</result>
+		</action>
+		<action name="selectUser" class="com.dy.bank.action.UserAction" method="selectUser">
+			<result name="selectUser">/userInfo.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="updateUserValidate" class="com.dy.bank.action.validateAction.UpdateUserValidate">
+			<result name="input">/updateUser.jsp</result>
+			<result type="chain">updateUser</result>
+		</action>
+		<action name="updateUser" class="com.dy.bank.action.UserAction" method="updateUser">
+			<result name="updateSuccess" >/updateUserSuccess.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="updateUserValidate2" class="com.dy.bank.action.validateAction.UpdateUserValidate2">
+			<result name="input">/updateUserPage.jsp</result>
+			<result type="chain">updateUser2</result>
+		</action>
+		<action name="updateUser2" class="com.dy.bank.action.UserAction" method="updateUser2">
+			<result name="updateSuccess2" >/updateUserSuccess2.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="updateManUserValidate" class="com.dy.bank.action.validateAction.UpdateManUserValidate">
+			<result name="input">/updateManUser.jsp</result>
+			<result type="chain">updateManUser</result>
+		</action>
+		<action name="updateManUser" class="com.dy.bank.action.UserAction" method="updateManUser">
+			<result name="updateManSuccess" >/updateManUserSuccess.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="logout" class="com.dy.bank.action.LoginAction" method="logout">
+			<result name="logout">/logout.jsp</result>
+		</action>
+		<action name="deleteUserInfo" class="com.dy.bank.action.UserAction" method="deleteUser">
+			<result name="deleteSuccess">/deleteSuccess.jsp</result>
+			<result name="deleteError">/deleteError.jsp</result>
+		</action>
+		<action name="deleteUserInfo2" class="com.dy.bank.action.UserAction" method="deleteUser2">
+			<result name="deleteSuccess2">/deleteSuccess2.jsp</result>
+			<result name="deleteError2">/deleteError2.jsp</result>
+		</action>
+		<action name="changePassValidate" class="com.dy.bank.action.validateAction.ChangePassValidate">
+			<result name="input">/changePassword.jsp</result>
+			<result type="chain">changePass</result>
+		</action>
+		<action name="changePass" class="com.dy.bank.action.UserAction" method="changePass">
+			<result name="changePaaSuc" >/changePaaSuc.jsp</result>
+			<result name="newpasserror" >/newpasserror.jsp</result>
+			<result name="passerror" >/passerror.jsp</result>
+			<result name="bothanderror" >/bothanderror.jsp</result>
+			<result name="oldpasserror" >/oldpasserror.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="selectManUser" class="com.dy.bank.action.UserAction" method="selectManUser">
+			<result name="selectManUser">/userInfo.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="SessionInterceptor"/>
+		</action>
+		<action name="Manlogout" class="com.dy.bank.action.LoginAction" method="Manlogout">
+			<result name="Manlogout">/Manlogout.jsp</result>
+		</action>
+	</package>
+	
+	<!-- <package name="action" extends="struts-default" namespace="another">
+		<action name="loginValidate" class="com.dy.bank.action.validateAction.LoginValidate">
+			<result name="input">/login.jsp</result>
+			<result type="chain">login</result>
+		</action>
+		<action name="login" class="com.dy.bank.action.LoginAction" method="login">
+			<result name="managerLogin">/managerPage.jsp</result>
+			<result name="loginSuccess">/trade.jsp</result>
+			<result name="bothError">/bothError.jsp</result>
+			<result name="loginError">/loginError.jsp</result>
+			<result name="verError">/verError.jsp</result>
+		</action>
+	</package> -->
+</struts>

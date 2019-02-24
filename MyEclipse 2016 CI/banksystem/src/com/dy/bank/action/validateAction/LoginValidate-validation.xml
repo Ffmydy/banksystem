@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="userNO">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.login.userNO.null")}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">^\d{13}$</param>
+			<message>${getText("error.login.userNO.error")}</message>
+		</field-validator>
+	</field>
+	
+	<field name="password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.login.passwd.null")}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<param name="trim">true</param>
+			<message>
+				${getText("error.login.passwd.lengthError")}
+			</message>
+		</field-validator>
+	</field>
+	
+	<field name="rand">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>${getText("error.login.rand.error")}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">4</param>
+			<param name="trim">true</param>
+			<message>
+				${getText("error.login.rand.error")}
+			</message>
+		</field-validator>
+	</field>
+	
+</validators>
