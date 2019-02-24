@@ -15,7 +15,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao   {
 		double price=this.getJdbcTemplate().queryForObject(sql, new Object[]{bname},double.class);
 		double allprice=price*number;
 		count(uname,allprice);
-	}
+	} 
 	public void count(String uname,double allprice){
 		String sql="update user set umoney=umoney-? where uname=? ";
 		this.getJdbcTemplate().update(sql, allprice,uname);	

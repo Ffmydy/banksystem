@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.alibb.service.IBuyBook;
 
-
+ 
 
 public class Mytest {
 	private IBuyBook service;

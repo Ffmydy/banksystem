@@ -13,7 +13,7 @@ public class User {
 		super();
 		this.uname = uname;
 		this.money = money;
-	}
+	} 
 	public Integer getUid() {
 		return uid;
 	}

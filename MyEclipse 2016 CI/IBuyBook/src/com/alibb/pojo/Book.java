@@ -10,7 +10,7 @@ public class Book {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+	 
 	public Book(String bname, double bprice, Integer number) {
 		super();
 		this.bname = bname;

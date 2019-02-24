@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
-	<!-- 配置C3P0数据源 -->
+	<!-- 配置C3P0数据源 --> 
 	<bean id="myC3P0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
@@ -26,5 +26,5 @@
 	<bean id="buybookservice" class="com.alibb.service.BuyBookImpl">
 	<property name="udao" ref="userdao"></property>
 	<property name="bdao" ref="bookdao"></property>
-	</bean>
+	</bean>    
 </beans>

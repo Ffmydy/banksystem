@@ -9,7 +9,8 @@ public class BookDaoImpl extends JdbcDaoSupport implements BookDao {
 		String sql="insert into book(bname,bprice,bnumber)values(?,?,?)";
 		this.getJdbcTemplate().update(sql, bname,bprice,bnumber);
 	}
-
+    
+	
 	@Override
 	public void bbuybook(String bname, int number) {
 		String sql="update book set bnumber=bnumber-? where bname=?";

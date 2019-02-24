@@ -6,4 +6,4 @@ public interface IBuyBook {
 	
 	void buybook(String uname,String bname,int number);//用户购书
 
-}
+} 
