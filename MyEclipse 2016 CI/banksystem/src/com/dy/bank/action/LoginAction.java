@@ -3,7 +3,7 @@ package com.dy.bank.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.ServletActionContext; 
 
 import com.dy.bank.domain.UserInfo;
 import com.dy.bank.service.UserFacade;
@@ -60,7 +60,7 @@ public class LoginAction extends ActionSupport{
 	public void setUserNO(String userNO) {
 		this.userNO = userNO;
 	}
-	//ÆÕÍ¨ÓÃ»§µÇÂ¼
+	//ï¿½ï¿½Í¨ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	public String login() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -74,7 +74,7 @@ public class LoginAction extends ActionSupport{
 		if(RadioButtonList1.equals("00")){
 			try {
 				flag = userFacade.login(user);
-				// flag==trueËµÃ÷´ÓÊý¾Ý¿âÖÐ²éÑ¯³öÁËÓëÒ³Ãæ»ñµÃµÄÕÊºÅÃÜÂëÏàÆ¥ÅäµÄ½á¹û
+				// flag==trueËµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ð²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½Ãµï¿½ï¿½Êºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½Ä½ï¿½ï¿½
 				if (flag == true && arandom.equals(this.getRand())) {
 					UserInfo userInfo = userFacade.selectUser(userNO);
 					session.setAttribute("user", userInfo);
@@ -97,7 +97,7 @@ public class LoginAction extends ActionSupport{
 			return "managerLogin";
 		}
 	}
-	//¹ÜÀíÔ±ÓÃ»§µÇÂ¼
+	//ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	public String Manlogin() {
 		boolean flag = false;
 		UserInfo user = new UserInfo();
@@ -107,12 +107,12 @@ public class LoginAction extends ActionSupport{
 		String arandom=(String)(ActionContext.getContext().getSession().get("random"));
 		try {
 			flag = userFacade.Manlogin(user);
-			// flag==trueËµÃ÷´ÓÊý¾Ý¿âÖÐ²éÑ¯³öÁËÓëÒ³Ãæ»ñµÃµÄÕÊºÅÃÜÂëÏàÆ¥ÅäµÄ½á¹û
+			// flag==trueËµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ð²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½Ãµï¿½ï¿½Êºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½Ä½ï¿½ï¿½
 			if (flag == true && arandom.equals(this.getRand())) {
 				UserInfo userInfo = userFacade.selectManUser(userNO);
 				HttpServletRequest request = ServletActionContext.getRequest();
 				HttpSession session = request.getSession();
-				// ½«µÇÂ¼ÓÃ»§ÐÅÏ¢´æÈësession
+				// ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½session
 				session.setAttribute("user", userInfo);
 				//System.out.println("session:"+session);
 				//System.out.println("userInfo:"+userInfo);
@@ -132,19 +132,19 @@ public class LoginAction extends ActionSupport{
 			return "Error";
 		}
 	}
-	//ÆÕÍ¨ÓÃ»§ÍË³ö
+	//ï¿½ï¿½Í¨ï¿½Ã»ï¿½ï¿½Ë³ï¿½
 	public String logout() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		// Ïú»Ùsession
+		// ï¿½ï¿½ï¿½ï¿½session
 		session.invalidate();
 		return "logout";
 	}
-	//¹ÜÀíÔ±ÓÃ»§ÍË³ö
+	//ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ã»ï¿½ï¿½Ë³ï¿½
 	public String Manlogout() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		// Ïú»Ùsession
+		// ï¿½ï¿½ï¿½ï¿½session
 		session.invalidate();
 		return "Manlogout";
 	}
