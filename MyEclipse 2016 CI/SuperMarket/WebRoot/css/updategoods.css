@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+div#container{
+	text-align: center;
+	width:300px;
+	height:350px;
+	margin:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.upd{
+	margin-right: 1em;
+}
+.res{
+	margin-left: 1em;
+}
+h5{
+	color:red;
+}

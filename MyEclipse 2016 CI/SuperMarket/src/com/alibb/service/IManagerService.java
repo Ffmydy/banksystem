@@ -1,0 +1,13 @@
+package com.alibb.service;
+
+import com.alibb.pojo.Goods;
+import com.alibb.pojo.Manager;
+import com.alibb.pojo.PageInfo;
+
+public interface IManagerService {
+	Manager managerLogin(String mphonenumber,String mpassword);
+	void addgoods(Goods goods);
+	PageInfo showallgoods(int pageSize,int pageNumber);
+	void deletegoods(int gid);
+	void updategoods(Goods goods);
+}

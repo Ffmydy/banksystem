@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<package name="com.alibb.pojo"/>
+	</typeAliases>
+	<plugins>
+      <plugin interceptor="com.github.pagehelper.PageHelper">
+          <!--设置数据可类型Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->
+          <property name="dialect" value="mysql"/>
+          <property name="reasonable" value="true"/>
+      </plugin>
+  </plugins>
+	<mappers>
+		<package name="com.alibb.dao"/>
+	</mappers>
+	
+</configuration>

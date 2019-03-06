@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+h3{
+	color:bule;
+}
+body{
+	background-image:url(../images/background1.jpg);
+}
+div{
+	text-align: center;
+	width:300px;
+	height:350px;
+	margin:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+h1{
+	color:red;
+	font-style: italic;
+}
+h5{
+	color:red;
+}
+

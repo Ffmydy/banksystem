@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+#sr input[value]{
+	background-color: #e0c69e;	
+}
+.reg{
+	margin-right: 1em;
+}
+.res{
+	margin-left: 1em;
+}
+h3{
+	color:green;
+}
+body{
+	background-image: url(../images/background2.jpg);
+}
+div{
+	text-align: center;
+	width:300px;
+	height:350px;
+	margin:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}

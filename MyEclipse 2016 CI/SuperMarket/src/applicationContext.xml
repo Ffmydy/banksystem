@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+    ">
+	<!-- 注册数据源：C3P0 -->
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<!-- 注册属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<bean id="mySqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="myDataSource" />
+		<property name="configLocation" value="classpath:mybatis.xml" />
+	</bean>
+	<!-- 生成Dao的代理对象 当前配置会为指定的基本包中所有的接口生成代理对象 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="mySqlSessionFactory" />
+		<property name="basePackage" value="com.alibb.dao" />
+	</bean>
+	<!-- 注册Service -->
+	<bean id="customerService" class="com.alibb.service.CustomerServiceImpl">
+		<property name="dao" ref="customerDao" />
+	</bean>
+	<bean id="managerService" class="com.alibb.service.ManagerServiceImpl">
+		<property name="dao" ref="managerDao"></property>
+	</bean>
+</beans>

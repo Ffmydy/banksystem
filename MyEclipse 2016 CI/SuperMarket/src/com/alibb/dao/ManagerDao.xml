@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alibb.dao.ManagerDao">
+	<select id="managerLogin" resultType="Manager">
+	select * from manager where mphonenumber=#{0} and mpassword=#{1}
+	</select>	
+	<insert id="addgoods">
+	insert into goods(gname,gprice,gnumber) values(#{gname},#{gprice},#{gnumber})
+	</insert>
+	<select id="checkgoods" resultType="Goods" parameterType="map">
+	select * from goods limit #{pageStart},#{pageSize}
+	</select>
+	<select id="selCount" resultType="long">
+		select count(*) from goods
+	</select>
+	<delete id="deletegoods">
+		delete from goods where gid=#{gid}
+	</delete>
+	<update id="updategoods">
+		update goods set gprice=#{gprice},gnumber=#{gnumber} where gid=#{gid}
+	</update>
+</mapper>
+

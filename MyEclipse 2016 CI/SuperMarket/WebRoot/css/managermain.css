@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+/* body{
+	background-image: url(../images/background4.jpg);
+} */
+div#header{
+	text-align: center;
+	color:blue;
+}
+#menu{
+	padding-left:32px;
+	margin:0px;
+	list-style-type: none;
+	height: 35px;
+}
+#menu li{
+	margin:40px 0;
+}
+#menu li a{
+	text-decoration: none;
+}
+#menu li a:HOVER {
+	text-decoration: underline;
+	color:red;
+}
+
+	
