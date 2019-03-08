@@ -26,6 +26,7 @@ public class Mytest {
 	@Test
 	public void test02(){
 		//service.buybook("杜玉","红楼梦", 2);
-		service.buybook("杜玉","围城", 10);
+		//service.buybook("杜玉","围城", 10);
+		service.buybook("杜玉","钢铁是怎样炼成的", 10);
 	}
 }
