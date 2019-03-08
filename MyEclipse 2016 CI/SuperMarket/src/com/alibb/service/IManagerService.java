@@ -11,4 +11,7 @@ public interface IManagerService {
 	void deletegoods(int gid);
 	void updategoods(Goods goods);
 	PageInfo showallcustomer(int pageSize, int pageNumber);
+	void deletecustomer(int cid);
+	void updatecustomer(int cid, String cpassword, String cphonenumber, String caddress);
+	Manager checkmanager(int mid);
 }

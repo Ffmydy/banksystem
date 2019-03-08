@@ -27,5 +27,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selcustomerCount" resultType="long">
 		select count(*) from customer
 	</select>
+	<delete id="deletecustomer">
+		delete from customer where cid=#{cid}
+	</delete>
+	<update id="updatecustomer">
+		update customer set cpassword=#{1},cphonenumber=#{2},caddress=#{3} where cid=#{0}
+	</update>
+	<select id="checkmanager" resultType="Manager">
+		select * from manager where mid=#{mid}
+	</select>
 </mapper>
 

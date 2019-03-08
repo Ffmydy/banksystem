@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
@@ -49,6 +50,8 @@ public class LoginServlet extends HttpServlet {
 			            return;
 			        } 
 				 else{
+					 HttpSession hs=req.getSession();
+					 hs.setAttribute("cid", customer.getCid());
 					 resp.sendRedirect("customermain.jsp");
 				 }
 			}
@@ -70,6 +73,8 @@ public class LoginServlet extends HttpServlet {
 			            return;
 			        } 
 				 else{
+				     HttpSession hs=req.getSession();
+					 hs.setAttribute("mid", manager.getMid());
 					 resp.sendRedirect("managermain.jsp");
 				 }
 			}

@@ -16,4 +16,7 @@ public interface ManagerDao {
 	void updategoods(Goods goods);
 	List<Goods> checkcustomer(Map<String, Object> map);
 	Long selcustomerCount();
+	void deletecustomer(int cid);
+	void updatecustomer(int cid, String cpassword, String cphonenumber, String caddress);
+	Manager checkmanager(int mid);
 }

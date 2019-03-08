@@ -65,4 +65,17 @@ public class ManagerServiceImpl implements IManagerService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public void deletecustomer(int cid) {
+		dao.deletecustomer(cid);
+		
+	}
+	@Override
+	public void updatecustomer(int cid, String cpassword, String cphonenumber, String caddress) {
+		dao.updatecustomer(cid,cpassword,cphonenumber,caddress);
+	}
+	@Override
+	public Manager checkmanager(int mid) {
+		return dao.checkmanager(mid);
+	}
 }

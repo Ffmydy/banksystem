@@ -51,6 +51,27 @@
     <servlet-name>CheckCustomerServlet</servlet-name>
     <servlet-class>com.alibb.servlets.CheckCustomerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <servlet-class>com.alibb.servlets.DeleteCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <servlet-class>com.alibb.servlets.UpdateCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowManagerServlet</servlet-name>
+    <servlet-class>com.alibb.servlets.ShowManagerServlet</servlet-class>
+  </servlet>
+
+
+
 
 
 
@@ -98,5 +119,17 @@
   <servlet-mapping>
     <servlet-name>CheckCustomerServlet</servlet-name>
     <url-pattern>/checkcustomer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <url-pattern>/deletecustomer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <url-pattern>/updatecustomer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowManagerServlet</servlet-name>
+    <url-pattern>/showmanager</url-pattern>
   </servlet-mapping>
 </web-app>
