@@ -11,7 +11,9 @@ public interface ManagerDao {
 	Manager managerLogin(String mphonenumber,String mpassword);
 	void addgoods(Goods goods);
 	List<Goods> checkgoods(Map<String, Object> map);
-	Long selCount();
+	Long selgoodsCount();
 	void deletegoods(int gid);
 	void updategoods(Goods goods);
+	List<Goods> checkcustomer(Map<String, Object> map);
+	Long selcustomerCount();
 }

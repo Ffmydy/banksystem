@@ -24,7 +24,14 @@ if(infomation!=null){%>
 alert("添加成功");
 </script>
 <%}
- %>
+%>
+<%String empty=(String)request.getAttribute("empty");
+if(empty!=null){%>
+<script type="text/javascript">
+alert("信息不能为空");
+</script>
+<%}
+%>
  <%@include file="managermain_top.jsp" %>
   <%@include file="managermain_left.jsp" %>
 	<div id="container">

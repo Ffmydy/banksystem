@@ -35,7 +35,7 @@ public class ManagerServiceImpl implements IManagerService {
 		map.put("pageStart",pageSize*(pageNumber-1));
 		map.put("pageSize", pageSize);
 		List<Goods> list = dao.checkgoods(map);
-		Long total=dao.selCount();
+		Long total=dao.selcustomerCount();
 		pi.setCount(total);
 		pi.setList(list);
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
@@ -49,5 +49,20 @@ public class ManagerServiceImpl implements IManagerService {
 	@Override
 	public void updategoods(Goods goods) {
 		dao.updategoods(goods);
+	}
+	@Override
+	public PageInfo showallcustomer(int pageSize, int pageNumber) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		List<Goods> list = dao.checkcustomer(map);
+		Long total=dao.selcustomerCount();
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
 	}
 }

@@ -44,8 +44,4 @@ public class PageInfo implements Serializable{
 	public void setCount(long count) {
 		this.count = count;
 	}
-	
-    
-
-
 }

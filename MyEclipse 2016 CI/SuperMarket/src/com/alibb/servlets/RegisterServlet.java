@@ -25,6 +25,7 @@ public class RegisterServlet extends HttpServlet {
 		ICustomerService service = new GetCustomerService().getCustomerService();
 		System.out.println(customer);
 		service.customerRegister(customer);
-		
+		req.setAttribute("registersuccess", "注册成功");
+		req.getRequestDispatcher("login.jsp").forward(req, resp);
 	}
 }

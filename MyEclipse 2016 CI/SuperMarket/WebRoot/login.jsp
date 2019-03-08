@@ -24,6 +24,13 @@
 			window.location.href = "register.jsp";
 		}
 	</script>
+	<%String successregister=(String)request.getAttribute("registersuccess");
+	if(successregister!=null){%>
+	<script type="text/javascript">
+	alert("You have registered successfully!")
+	</script>
+	<%}
+	 %>
 	<h1>在线超市系统</h1>
 
 	<div>

@@ -17,12 +17,20 @@ public class AddGoodsServlet extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;utf-8");
 		String gname=req.getParameter("gname");
-		double gprice = Double.parseDouble(req.getParameter("gprice"));
-		int gnumber = Integer.parseInt(req.getParameter("gnumber"));
-		Goods goods=new Goods(gname,gprice,gnumber);
-		IManagerService service = new GetManagerService().getManagerService();
-		service.addgoods(goods);
-		req.setAttribute("infomation", "添加成功");
-		req.getRequestDispatcher("addgoods.jsp").forward(req, resp);
+		String price=req.getParameter("gprice");
+		String number=req.getParameter("gnumber");
+		if(gname!=null&&!gname.equals("")&&price!=null&&!price.equals("")&&number!=null&&!number.equals("")){
+			double gprice = Double.parseDouble(gname);
+			int gnumber = Integer.parseInt(number);
+			Goods goods=new Goods(gname,gprice,gnumber);
+			IManagerService service = new GetManagerService().getManagerService();
+			service.addgoods(goods);
+			req.setAttribute("infomation", "添加成功");
+			req.getRequestDispatcher("addgoods.jsp").forward(req, resp);
+		}
+		else{
+			req.setAttribute("empty", "商品信息不能为空");
+			req.getRequestDispatcher("addgoods.jsp").forward(req, resp);
+		}
 	}
 }

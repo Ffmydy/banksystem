@@ -10,4 +10,5 @@ public interface IManagerService {
 	PageInfo showallgoods(int pageSize,int pageNumber);
 	void deletegoods(int gid);
 	void updategoods(Goods goods);
+	PageInfo showallcustomer(int pageSize, int pageNumber);
 }

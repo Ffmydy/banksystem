@@ -22,7 +22,7 @@ public class UpdateGoodsServlet extends HttpServlet {
 		String number=req.getParameter("gnumber");
 		if(price!=null&&!price.equals("")&&number!=null&&!number.equals("")){
 		    double gprice=Double.parseDouble(price);
-		    int gnumber=Integer.parseInt(req.getParameter(number));
+		    int gnumber=Integer.parseInt(number);
 		    Goods goods=new Goods(gname,gprice,gnumber);
 			goods.setGid(gid);
 			IManagerService service = new GetManagerService().getManagerService();
