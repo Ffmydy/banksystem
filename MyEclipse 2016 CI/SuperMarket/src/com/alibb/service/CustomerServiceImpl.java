@@ -18,5 +18,14 @@ public class CustomerServiceImpl implements ICustomerService {
 	public void customerRegister(Customer customer) {
 		//System.out.println(customer);
 		dao.customerRegister(customer);
-	}	
+	}
+
+	@Override
+	public void buygoods(int gid, String bnumber, double gprice, Integer cid) {
+		dao.buygoodscone(gid,bnumber);
+		dao.buygoodsctwo(bnumber,gprice,cid);
+		
+	}
+
+
 }

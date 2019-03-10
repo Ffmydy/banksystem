@@ -10,5 +10,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="customerRegister">
 	insert into customer(cname,cpassword,cphonenumber,caddress,cmoney) values(#{cname},#{cpassword},#{cphonenumber},#{caddress},#{cmoney})
 	</insert>
+	<update id="buygoodscone">
+	update goods set gnumber=gnumber-#{1} where gid=#{0}
+	</update>
+	<update id="buygoodsctwo">
+	update customer set cmoney=cmoney-#{0}*#{1} where cid=#{2}
+	</update>
 </mapper>
 

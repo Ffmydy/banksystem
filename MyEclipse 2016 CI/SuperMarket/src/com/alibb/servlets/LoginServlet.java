@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			        } 
 				 else{
 					 HttpSession hs=req.getSession();
-					 hs.setAttribute("cid", customer.getCid());
+					 hs.setAttribute("customer", customer);
 					 resp.sendRedirect("customermain.jsp");
 				 }
 			}
