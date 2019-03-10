@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+div#container{
+	text-align: center;
+	width:500px;
+	height:350px;
+	margin:auto;
+	position:absolute;
+	margin-top:100px;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+td{
+	width: 80px;
+	font-style: inherit;
+	font-size:10px;
+	text-align: center;
+}
+td#address{
+	width:200px;
+}
