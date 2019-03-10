@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a href="checkgoods?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
                                 第${PageInfo.pageNumber}页/
                                 共${PageInfo.total}页
-            (${PageInfo.count}共条数据）
+            (共${PageInfo.count}条数据）
     </td>
     </tr>
     </table>

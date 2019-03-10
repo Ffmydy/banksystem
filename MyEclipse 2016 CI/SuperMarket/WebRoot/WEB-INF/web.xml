@@ -69,6 +69,13 @@
     <servlet-name>ShowManagerServlet</servlet-name>
     <servlet-class>com.alibb.servlets.ShowManagerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateManagerServlet</servlet-name>
+    <servlet-class>com.alibb.servlets.UpdateManagerServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -131,5 +138,9 @@
   <servlet-mapping>
     <servlet-name>ShowManagerServlet</servlet-name>
     <url-pattern>/showmanager</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateManagerServlet</servlet-name>
+    <url-pattern>/updatemanager</url-pattern>
   </servlet-mapping>
 </web-app>

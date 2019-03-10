@@ -14,4 +14,5 @@ public interface IManagerService {
 	void deletecustomer(int cid);
 	void updatecustomer(int cid, String cpassword, String cphonenumber, String caddress);
 	Manager checkmanager(int mid);
+	void updatemanager(Manager manager);
 }

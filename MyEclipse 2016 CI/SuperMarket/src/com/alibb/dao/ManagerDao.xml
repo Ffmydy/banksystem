@@ -36,5 +36,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="checkmanager" resultType="Manager">
 		select * from manager where mid=#{mid}
 	</select>
+	<update id="updatemanager">
+		update manager set mname=#{mname},mphonenumber=#{mphonenumber},mpassword=#{mpassword} where mid=#{mid}
+	</update>
 </mapper>
 

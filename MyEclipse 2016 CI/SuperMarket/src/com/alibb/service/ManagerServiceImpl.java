@@ -35,7 +35,7 @@ public class ManagerServiceImpl implements IManagerService {
 		map.put("pageStart",pageSize*(pageNumber-1));
 		map.put("pageSize", pageSize);
 		List<Goods> list = dao.checkgoods(map);
-		Long total=dao.selcustomerCount();
+		Long total=dao.selgoodsCount();
 		pi.setCount(total);
 		pi.setList(list);
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
@@ -77,5 +77,10 @@ public class ManagerServiceImpl implements IManagerService {
 	@Override
 	public Manager checkmanager(int mid) {
 		return dao.checkmanager(mid);
+	}
+	@Override
+	public void updatemanager(Manager manager) {
+		dao.updatemanager(manager);
+		
 	}
 }

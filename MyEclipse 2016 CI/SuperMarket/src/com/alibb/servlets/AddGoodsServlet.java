@@ -17,10 +17,11 @@ public class AddGoodsServlet extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;utf-8");
 		String gname=req.getParameter("gname");
+		//System.out.println(gname);
 		String price=req.getParameter("gprice");
 		String number=req.getParameter("gnumber");
 		if(gname!=null&&!gname.equals("")&&price!=null&&!price.equals("")&&number!=null&&!number.equals("")){
-			double gprice = Double.parseDouble(gname);
+			double gprice = Double.parseDouble(price);
 			int gnumber = Integer.parseInt(number);
 			Goods goods=new Goods(gname,gprice,gnumber);
 			IManagerService service = new GetManagerService().getManagerService();
