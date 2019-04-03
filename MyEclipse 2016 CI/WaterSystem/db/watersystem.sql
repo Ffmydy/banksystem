@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 03/04/2019 11:29:45
+ Date: 03/04/2019 19:09:52
 */
 
 SET NAMES utf8mb4;
@@ -82,11 +82,19 @@ INSERT INTO `irrigation _water_ requirement` VALUES (13, 1961, 1, 0.00);
 DROP TABLE IF EXISTS `manage`;
 CREATE TABLE `manage`  (
   `manage_number` int(11) NOT NULL AUTO_INCREMENT,
-  `manage_account` varchar(20) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `manage_phonenumber` varchar(20) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   `manage_password` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `manage_grade` int(255) DEFAULT NULL,
-  PRIMARY KEY (`manage_number`, `manage_account`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+  `manage_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `manage_sex` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `manage_age` int(2) DEFAULT NULL,
+  `manage_photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`manage_number`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of manage
+-- ----------------------------
+INSERT INTO `manage` VALUES (1, '18637197687', '123456', '杜玉', '男', 24, NULL);
 
 -- ----------------------------
 -- Table structure for reservoir_water_evaporation
