@@ -96,7 +96,8 @@ label.form-label {
  .yzm{ width:112px;}
  .yzm-img{ position:absolute; left:130px; top:30px; cursor:pointer;}
 
-.btn-login{ width:242px; height:38px; background:url(../images/login-btn.png) no-repeat; border:none; margin-top:5px;}
+.btn-login{ width:50px; height:19px; background:url(../images/login-btn.png) no-repeat; border:none; margin-top:5px;margin-left: 15px;}
+.btn-reg{width:50px;height: 19px;background:url(../images/reg-btn.png) no-repeat;border: none;margin-top;5px;margin-left: 110px;}
 
 
 
