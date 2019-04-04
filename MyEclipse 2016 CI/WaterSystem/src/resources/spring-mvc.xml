@@ -4,6 +4,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,9 +13,20 @@
         http://www.springframework.org/schema/tx 
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop 
-        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+		<!-- 注册校验器 -->
+		<bean id="myValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+			<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+		</bean>
+        <!-- 注册mvc注解驱动 -->
+        <mvc:annotation-driven validator="myVolidator"/>
         <!-- 注册组件扫描器 -->
-        <context:component-scan base-package="com.haut.handlers"/>
+        <context:component-scan base-package="com.haut.*"/>
+        <!-- 访问静态资源 -->
+        <mvc:default-servlet-handler/>
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
 </beans>
 
 

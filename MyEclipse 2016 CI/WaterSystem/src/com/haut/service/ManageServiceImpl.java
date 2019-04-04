@@ -17,7 +17,6 @@ public class ManageServiceImpl implements IManageService {
 	}
 	@Override
 	public Manage manageLogin(String phonenumber, String password) {
-		System.out.println(phonenumber+"......"+password);
 		Manage manage=dao.manageLogin(phonenumber,password);
 		return manage;
 	}
