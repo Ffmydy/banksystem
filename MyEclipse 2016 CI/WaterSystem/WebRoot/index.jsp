@@ -16,6 +16,11 @@
 </script>
 </head>
 <body>
+<c:if test="${not empty registersuc}">
+	<script type="text/javascript">
+		alert("您已经注册成功，快去登录吧！")
+	</script>
+</c:if>
 <jsp:include page="head.jsp" />
 	<div class="banner">
 		<div class="login-aside">

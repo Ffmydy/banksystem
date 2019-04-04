@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -19,6 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script type="text/javascript">
+		function login(){
+			window.location.href="index.jsp";
+		}
+	</script>
 
   </head>
   
@@ -30,13 +36,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="o-box-down" style="table-layout:fixed;">
 			<div class="error-box">${error }</div>
 				<form class="registerform" action="${pageContext.request.contextPath}/register.do" method="post">
-					<label class="form-label">姓名：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="name" placeholder="请输入姓名"></label>
-					<label class="form-label">手机：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="phonenumber" placeholder="请输入手机号"></label>
-					<label class="form-label">年龄: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="age"></label>
-					<label class="form-label">密码：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="password" name="password"></label>
-					<label class="form-label">确认密码：<input type="password" name="apassword"></label>
-					<label class="form-label">性别: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" name="sex" value="男" checked="checked" />男<input type="radio" name="sex" value="女" />女</label>
-					<label class="form-label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="注册">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="reset" value="取消"></label>
+					<label class="form-label">您的姓名：<input type="text" name="manage_name" placeholder="请输入姓名"></label>
+					<label class="form-label">您的手机：<input type="text" name="manage_phonenumber" placeholder="请输入手机号"></label>
+					<label class="form-label">您的年龄：<input type="text" name="manage_age"></label>
+					<label class="form-label">您的密码：<input type="password" name="manage_password"></label>
+					<label class="form-label">确认密码：<input type="password" name="manage_apassword"></label>
+					<label class="form-label">您的性别: <input type="radio" name="manage_sex" value="男" checked="checked" />男<input type="radio" name="manage_sex" value="女" />女</label>
+					<label class="form-label"><input type="submit" value="注册">
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="reset" value="取消">
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="button" value="返回" onclick="login()">
+					</label>
 				</form>
 			</div>
 		</div>

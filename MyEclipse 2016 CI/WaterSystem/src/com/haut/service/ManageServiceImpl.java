@@ -20,4 +20,13 @@ public class ManageServiceImpl implements IManageService {
 		Manage manage=dao.manageLogin(phonenumber,password);
 		return manage;
 	}
+	@Override
+	public Manage checkphonenumber(String manage_phonenumber) {
+		Manage manage=dao.checkphonenumber(manage_phonenumber);
+		return manage;
+	}
+	@Override
+	public void manageRegister(Manage manage) {
+		dao.manageRegister(manage);
+	}
 }

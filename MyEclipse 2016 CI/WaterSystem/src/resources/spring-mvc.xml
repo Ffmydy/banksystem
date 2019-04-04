@@ -21,7 +21,7 @@
 			<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
 		</bean>
         <!-- 注册mvc注解驱动 -->
-        <mvc:annotation-driven validator="myVolidator"/>
+        <mvc:annotation-driven validator="myValidator"/>
         <!-- 注册组件扫描器 -->
         <context:component-scan base-package="com.haut.*"/>
         <!-- 访问静态资源 -->
