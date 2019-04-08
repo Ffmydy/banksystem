@@ -2,7 +2,9 @@ package com.haut.handlers;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,9 +14,12 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.haut.beans.Manage;
+import com.haut.common.RandomValidateCode;
+import com.haut.constant.Constants;
 import com.haut.service.IManageService;
 
 @Controller
@@ -25,21 +30,36 @@ public class ManageController {
 	public void setService(IManageService service) {
 		this.service = service;
 	}
+	@Resource
+    RandomValidateCode code;
+    @RequestMapping("/vcode.do")
+    public void vcode(HttpServletRequest request,HttpServletResponse response) {
+        code.getRandcode(request, response);
+    }
 	//登录
 	@RequestMapping("/login.do")
-	public ModelAndView doLogin(String phonenumber,String password){
-		System.out.println(phonenumber+"......"+password);
+	public ModelAndView doLogin(String phonenumber,String password,@RequestParam String vcode,HttpServletRequest request,HttpServletResponse response){
 		ModelAndView mv=new ModelAndView();
 		Manage manage=service.manageLogin(phonenumber,password);
 		mv.addObject("manage", manage);
-		//System.out.println(manage);
-		if(manage!=null){
-			mv.setViewName("forward:/main.jsp");
-		}
-		else{
-			mv.addObject("error", "用户名或密码错误");
-			mv.setViewName("forward:/index.jsp");
-		}
+		//获取session中的code
+        String sessionCode=(String)request.getSession().getAttribute(Constants.RANDOM_CODE_KEY);
+        //将随机生成的验证码和用户输入的验证码统一转化成大写或者小写
+        vcode=vcode.toLowerCase();
+        sessionCode=sessionCode.toLowerCase();
+        if(!vcode.equals(sessionCode)){
+        	mv.addObject("error", "验证码错误");
+        	mv.setViewName("forward:/index.jsp");
+        }
+        else{
+        	if(manage!=null){
+        		mv.setViewName("forward:/main.jsp");
+        	}
+        	else{
+        		mv.addObject("error", "用户名或密码错误");
+    			mv.setViewName("forward:/index.jsp");
+        	}
+        }
 		return mv;
 	}
 	//注册

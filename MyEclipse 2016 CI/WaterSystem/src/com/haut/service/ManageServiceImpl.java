@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.haut.beans.Manage;
 import com.haut.dao.IManageDao;
+import com.haut.util.MD5Util;
 @Service("manageService")
 public class ManageServiceImpl implements IManageService {
 	@Resource(name="IManageDao")
@@ -17,7 +18,9 @@ public class ManageServiceImpl implements IManageService {
 	}
 	@Override
 	public Manage manageLogin(String phonenumber, String password) {
-		Manage manage=dao.manageLogin(phonenumber,password);
+		//Md5登录
+		String md5Password=MD5Util.MD5EncodeUtf8(password);
+		Manage manage=dao.manageLogin(phonenumber,md5Password);
 		return manage;
 	}
 	@Override
@@ -27,6 +30,8 @@ public class ManageServiceImpl implements IManageService {
 	}
 	@Override
 	public void manageRegister(Manage manage) {
+		//Md5加密
+		manage.setManage_password(MD5Util.MD5EncodeUtf8(manage.getManage_password()));
 		dao.manageRegister(manage);
 	}
 }

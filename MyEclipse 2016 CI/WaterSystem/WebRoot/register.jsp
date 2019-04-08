@@ -20,12 +20,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script type="text/javascript">
-		function login(){
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+          function login(){
 			window.location.href="index.jsp";
 		}
+    </script>
+    
+	<script type="text/javascript">
+    var InterValObj; //timer变量，控制时间
+    var count = 30; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    function sendMessage(){
+        curCount = count;
+        $("#btn").attr("disabled", "true");
+        $("#btn").val(curCount + "秒后可重新发送");
+        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次请求后台发送验证码 TODO
+    }
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("#btn").removeAttr("disabled");//启用按钮
+            $("#btn").val("重新发送验证码");
+        }
+        else {
+            curCount--;
+            $("#btn").val(curCount + "秒后可重新发送");
+        }
+    }
 	</script>
-
   </head>
   
   <body>
@@ -35,17 +60,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="o-box-up"></div>
 			<div id="o-box-down" style="table-layout:fixed;">
 			<div class="error-box">${error }</div>
-				<form class="registerform" action="${pageContext.request.contextPath}/register.do" method="post">
-					<label class="form-label">您的姓名：<input type="text" name="manage_name" placeholder="请输入姓名"></label>
-					<label class="form-label">您的手机：<input type="text" name="manage_phonenumber" placeholder="请输入手机号"></label>
-					<label class="form-label">您的年龄：<input type="text" name="manage_age"></label>
-					<label class="form-label">您的密码：<input type="password" name="manage_password"></label>
-					<label class="form-label">确认密码：<input type="password" name="manage_apassword"></label>
-					<label class="form-label">您的性别: <input type="radio" name="manage_sex" value="男" checked="checked" />男<input type="radio" name="manage_sex" value="女" />女</label>
-					<label class="form-label"><input type="submit" value="注册">
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="reset" value="取消">
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="button" value="返回" onclick="login()">
-					</label>
+				<form class="registerform1" role="form">
+					<label class="form-label">手机号：
+					<input type="text" id="phone" name="manage_phonenumber" placeholder="请输入您的手机号"  required autofocus ></label>
+				    <label class="form-label">验证码：     
+					<input type="text" id="code" name="code" placeholder="验证码" required></label>
+					<label class="form-label"><input type="button" class="btn btn-default" id="btn" name="btn" value="发送验证码" /></label>
+					<button type="button" class="btn btn-info" id="lo">下一步</button>
 				</form>
 			</div>
 		</div>
@@ -61,6 +82,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<ul></ul>
 		</div>
 	</div>
+	<script type="text/javascript">
+    var sms="";
+    $("#btn").click(function(){
+        var manage_phonenumber=$("#phone").val();
+        if(manage_phonenumber!="")
+        {	sendMessage();
+            $.ajax({
+                url:"sendSMS.do",
+                type:"post",
+                data:{"manage_phonenumber":manage_phonenumber},
+                success:function(result){
+                    sms=result;
+                }
+            });
+        }else{
+             alert("请输入手机号");
+            return false;
+        }
+    });
+    $("#lo").click(function(){
+        var code=$("#code").val();
+        if(code==""){
+            alert("请输入验证码");
+        }else{
+            if(sms==code){
+                window.location.href="nextRegister.jsp";
+            }else{
+                alert("验证码错误");
+            };
+        };
+    });
+</script>
 	<script type="text/javascript">jQuery(".banner").slide({
 			titCell : ".hd ul",
 			mainCell : ".bd ul",

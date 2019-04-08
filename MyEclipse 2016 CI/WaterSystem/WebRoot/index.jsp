@@ -13,6 +13,9 @@
 	function register(){
 		window.location.href="register.jsp";
 	}
+	function changecode(){
+	    src=document.getElementById('vcode').src="vcode.do?c="+Math.random();
+	}
 </script>
 </head>
 <body>
@@ -42,10 +45,10 @@
 
 					<div class="fm-item pos-r">
 						<label for="logonId" class="form-label">验证码</label> <input
-							type="text" value="输入验证码" maxlength="100" id="yzm"
+							type="text" name="vcode" placeholder="请输入验证码"  maxlength="100" id="yzm"
 							class="i-text yzm">
 							<div class="ui-form-explain">
-								<img src="images/yzm.jpg" class="yzm-img" />
+							    <img id="vcode" alt="换一张" class="yzm-img" src="vcode.do" onclick="changecode()"/>
 							</div>
 					</div>
 					<div class="fm-item">

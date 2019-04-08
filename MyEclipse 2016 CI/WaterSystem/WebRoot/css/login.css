@@ -93,11 +93,12 @@ label.form-label {
   -mis-box-shadow:1px 1px 1px #dfe4e8 inset;
  }
  
- .yzm{ width:112px;}
- .yzm-img{ position:absolute; left:130px; top:30px; cursor:pointer;}
+ .yzm{ width:112px; color: black;}
+ .yzm-img{ position:absolute; left:130px; top:30px; width: 112px;}
 
 .btn-login{ width:50px; height:19px; background:url(../images/login-btn.png) no-repeat; border:none; margin-top:5px;margin-left: 15px;}
 .btn-reg{width:50px;height: 19px;background:url(../images/reg-btn.png) no-repeat;border: none;margin-top;5px;margin-left: 110px;}
+
 
 
 
