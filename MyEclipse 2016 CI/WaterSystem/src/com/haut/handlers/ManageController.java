@@ -49,6 +49,7 @@ public class ManageController {
         sessionCode=sessionCode.toLowerCase();
         if(manage!=null){
         	if(vcode.equals(sessionCode)){
+        	   mv.addObject("manage", manage);
         	   mv.setViewName("forward:/main.jsp");
             }
         	else{

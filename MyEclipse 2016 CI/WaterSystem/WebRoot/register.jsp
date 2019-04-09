@@ -103,6 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     }
                     if(sms=="error_registered"){
                         alert("手机号已注册，请直接去登录")
+                        window.location.href="register.jsp";
                     }
                 }
             });
