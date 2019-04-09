@@ -47,18 +47,18 @@ public class ManageController {
         //将随机生成的验证码和用户输入的验证码统一转化成大写或者小写
         vcode=vcode.toLowerCase();
         sessionCode=sessionCode.toLowerCase();
-        if(!vcode.equals(sessionCode)){
-        	mv.addObject("error", "验证码错误");
-        	mv.setViewName("forward:/index.jsp");
+        if(manage!=null){
+        	if(vcode.equals(sessionCode)){
+        	   mv.setViewName("forward:/main.jsp");
+            }
+        	else{
+        		mv.addObject("error", "验证码错误");
+            	mv.setViewName("forward:/index.jsp");
+        	}
         }
         else{
-        	if(manage!=null){
-        		mv.setViewName("forward:/main.jsp");
-        	}
-        	else{
-        		mv.addObject("error", "用户名或密码错误");
-    			mv.setViewName("forward:/index.jsp");
-        	}
+        	mv.addObject("error", "用户名或密码错误");
+			mv.setViewName("forward:/index.jsp");
         }
 		return mv;
 	}

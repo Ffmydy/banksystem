@@ -1,11 +1,13 @@
 package com.haut.handlers;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
@@ -14,18 +16,37 @@ import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
+import com.haut.beans.Manage;
+import com.haut.service.IManageService;
 import com.haut.util.RandomCode;
 
 
 @Controller
 public class PhoneCodeController {
+	@Autowired
+	@Qualifier("manageService")
+	private IManageService service;
+	public void setService(IManageService service) {
+		this.service = service;
+	}
 	@RequestMapping(value="/sendSMS.do",method=RequestMethod.POST)
 	@ResponseBody
 	public Object sendSMS( String manage_phonenumber) throws ClientException{
-		RandomCode.setNewcode();
-        String code = Integer.toString(RandomCode.getNewcode());
-		sendCode(manage_phonenumber,code);
-		return code;
+		Manage manage=service.checkphonenumber(manage_phonenumber);
+		if(manage==null){
+			RandomCode.setNewcode();
+	        String code = Integer.toString(RandomCode.getNewcode());
+			SendSmsResponse sendSmsResponse = sendCode(manage_phonenumber,code);
+			if(sendSmsResponse.getCode().equals("isv.MOBILE_NUMBER_ILLEGAL")){
+				return "error_phonenumber";
+			}
+			else{	
+				return code;
+			}
+		}
+		else{
+			return "error_registered";
+		}
 	}
 	public static SendSmsResponse sendCode(String manage_phonenumber,String code)throws ClientException{
 		//设置超时时间-可自行调整
@@ -57,7 +78,9 @@ public class PhoneCodeController {
 		  SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
 		  if(sendSmsResponse.getCode()!= null && sendSmsResponse.getCode().equals("OK")){
 	            System.out.println("短信发送成功！");
+	            //System.out.println(code);
 	        }else {
+	        	//System.out.println(sendSmsResponse.getCode());
 	            System.out.println("短信发送失败！");
 	        }
 	        return sendSmsResponse;

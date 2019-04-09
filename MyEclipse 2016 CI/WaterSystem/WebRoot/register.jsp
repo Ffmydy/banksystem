@@ -66,6 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    <label class="form-label">验证码：     
 					<input type="text" id="code" name="code" placeholder="验证码" required></label>
 					<label class="form-label"><input type="button" class="btn btn-default" id="btn" name="btn" value="发送验证码" /></label>
+					<button type="button" onclick="login()">上一步</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" class="btn btn-info" id="lo">下一步</button>
 				</form>
 			</div>
@@ -84,8 +85,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<script type="text/javascript">
     var sms="";
+    var phonenumber="";
     $("#btn").click(function(){
         var manage_phonenumber=$("#phone").val();
+        phonenumber=manage_phonenumber;
         if(manage_phonenumber!="")
         {	sendMessage();
             $.ajax({
@@ -94,11 +97,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 data:{"manage_phonenumber":manage_phonenumber},
                 success:function(result){
                     sms=result;
+                    if(sms=="error_phonenumber"){
+                    	alert("手机号非法，请重新输入")
+                    	window.location.href="register.jsp";
+                    }
+                    if(sms=="error_registered"){
+                        alert("手机号已注册，请直接去登录")
+                    }
                 }
             });
         }else{
-             alert("请输入手机号");
-            return false;
+                alert("请输入手机号");
+                return false;
         }
     });
     $("#lo").click(function(){
@@ -107,9 +117,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             alert("请输入验证码");
         }else{
             if(sms==code){
-                window.location.href="nextRegister.jsp";
-            }else{
-                alert("验证码错误");
+                window.location.href="nextRegister.jsp?phone="+phonenumber;
+            }
+            else{
+                alert("验证码不正确")
             };
         };
     });
