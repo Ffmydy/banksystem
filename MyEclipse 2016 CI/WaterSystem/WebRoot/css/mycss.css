@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+.menu-right{
+	position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 150px;
+    right: 0;
+    z-index: 1;
+}
+.menu-right .text{
+	margin-top:60px;
+	color:#ffffff;
+}
+.menu-right .text p{
+	text-indent: 2em;
+	font-size:15px;
+}
