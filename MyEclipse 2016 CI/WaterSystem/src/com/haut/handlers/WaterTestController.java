@@ -25,7 +25,7 @@ public class WaterTestController {
 		ModelAndView mv=new ModelAndView();
 		PageInfo pi=new PageInfo();
 		String pageSizeStr = request.getParameter("pageSize");
-		int pageSize=10;
+		int pageSize=6;
 		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
 			pageSize=Integer.parseInt(pageSizeStr);
 		}
@@ -39,8 +39,11 @@ public class WaterTestController {
 		mv.setViewName("forward:/show_wateritem.jsp");
 		return mv;
 	}
-	
-	
-	
-
+	@RequestMapping("/deleteprogram.do")
+	public ModelAndView dodeleteprogram(int item_number){
+		ModelAndView mv=new ModelAndView();
+		service.deleteitem(item_number);
+		mv.setViewName("forward:/checkprogram.do");
+		return mv;
+	}
 }

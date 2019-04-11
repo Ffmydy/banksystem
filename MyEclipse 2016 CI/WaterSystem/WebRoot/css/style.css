@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 /*重置*/
-html,body,div,span,ul,li,h1,h2,h3,h4,p,a,img,input,form{margin:0;padding:0;border:0;list-style:none;outline:0;}
-div,td,ul,li,dl,dt,dd,h2,h3,h4{list-style:none;margin:0;padding:0;}
+html,body,div,span,ul,li,h1,h2,h3,h4,p,a,img{margin:0;padding:0;list-style:none;outline:0;}
 div{display:block;}
 body{font-size:12px;font-family:"微软雅黑", "宋体", Arial;color:#666;}
 li{display:list-item;text-align:-webkit-match-praent;}
@@ -18,7 +17,7 @@ a:hover{text-decoration:none;}
 i,s{text-decoration:none;font-style:normal;}
 
 /*index*/
-.container{margin:0 auto;position:absolute;top:0;bottom:0;width:100%;min-width:1200;min-height:730px;background:url("../themes/theme-pic1.jpg");}
+.container{margin:0 auto;position:absolute;top:0;bottom:0;width:100%;min-width:1200;min-height:730px;}
 .cont-top{position:absolute;top:0;bottom:0;left:0;right:0;height:80px;padding:0 20px;z-index:2;background:#fff;overflow:hidden;}
 .companyname{font-size:20px;line-height:80px;float:left;width:220px;color:red;}
 .cont-top-middle{float:left;width:522px;position:absolutel;}
@@ -50,7 +49,7 @@ i,s{text-decoration:none;font-style:normal;}
 .advanced-menu li{float:right;padding:0 10px;}
 
 /*index-left*/
-.left-menu{background:url(../img/bj.png) no-repeat 50%;background-size: cover;float:left;}
+.left-menu{background:url(../images/bj.png) no-repeat 50%;background-size: cover;float:left;}
 .menu-list {width:150px;margin-top:80px;}
 .menu-list ul li{display:block;text-align:center;width:100%;height:60px;line-height:60px;}
 .menu-list-01{height:60px;}

@@ -9,6 +9,8 @@
 <body>
 	<jsp:include page="model.jsp" />
 	<div class="menu-right">
+	<div class="l-tab-links">
+	</div>
 	<div class="text">
 		<p>
 		    万佛湖位于安徽省六安市舒城县万佛湖镇境内，是淠史杭灌区的重要组成部分，总面积299平方千米，湖面50平方千米，湖岸周边205千米，库容9.03亿立方米。地理坐标：东经116°78′，北纬31°30′

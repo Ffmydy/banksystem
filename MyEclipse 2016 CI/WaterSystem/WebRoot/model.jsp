@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="com.haut.beans.*" %>
+<%@ page import="com.haut.beans.*"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -31,21 +31,22 @@
 </script>
 </head>
 <body>
-	<%Manage manage=(Manage)request.getAttribute("manage"); %>
+	<%
+		Manage manage = (Manage) request.getAttribute("manage");
+	%>
 	<div class="container">
 		<div class="cont-top">
 			<div class="companyname">万佛湖水资源管理系统</div>
 			<div class="cont-top-rg">
 				<ul class="advanced-menu">
-					<li class="default" style="position:relative;">
-						 <span id="show_time" />
+					<li class="default" style="position:relative;"><span
+						id="show_time" />
 						<div class="drop-down-wrap"
 							style="width:180px;left:15px;display:none">
 							<div class="drop-down">
 								<span class="triangle-border"></span> <span class="triangle-bg"></span>
 							</div>
-						</div>
-					</li>
+						</div></li>
 				</ul>
 			</div>
 		</div>
@@ -55,14 +56,15 @@
 					<li class="menu-list-01"><a href="main.jsp">
 							<p class="fumenu">首页</p> <img class="xiala"
 							src="images/xiala.png" />
-					</a>
-					</li>
+					</a></li>
 					<li class="menu-list-02"><a href="#">
 							<p class="fumenu">水检管理</p> <img class="xiala"
 							src="images/xiala.png" />
 					</a>
 						<div class="list-p">
-							<p class="zcd" id="zcd5"><a href="checkprogram.do">水检项目表</a></p>
+							<p class="zcd" id="zcd5">
+								<a href="checkprogram.do">水检项目表</a>
+							</p>
 							<p class="zcd" id="zcd6">水检单位表</p>
 							<p class="zcd" id="zcd7">水检负责人</p>
 						</div></li>

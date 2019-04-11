@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -38,7 +39,7 @@ public class ManageController {
     }
 	//登录
 	@RequestMapping("/login.do")
-	public ModelAndView doLogin(String phonenumber,String password,@RequestParam String vcode,HttpServletRequest request,HttpServletResponse response){
+	public ModelAndView doLogin(String phonenumber,String password,@RequestParam String vcode,HttpServletRequest request,HttpServletResponse response,HttpSession session){
 		ModelAndView mv=new ModelAndView();
 		Manage manage=service.manageLogin(phonenumber,password);
 		mv.addObject("manage", manage);
@@ -49,7 +50,7 @@ public class ManageController {
         sessionCode=sessionCode.toLowerCase();
         if(manage!=null){
         	if(vcode.equals(sessionCode)){
-        	   mv.addObject("manage", manage);
+        	   session.setAttribute("manage", manage);
         	   mv.setViewName("forward:/main.jsp");
             }
         	else{

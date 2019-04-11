@@ -1,13 +1,13 @@
 package com.haut.beans;
+import java.util.Date;
 
-import java.text.SimpleDateFormat;
 
 public class Water_Test_Report {
 	private Integer item_number;//水检项目编号
 	private String item_name;
 	private Double item_concentration;//项目元素浓度
 	private Integer water_level;//水质级别
-	private SimpleDateFormat time;
+	private Date time;
 	private Integer unit_number;//项目负责单位编号
 	public Water_Test_Report() {
 		super();
@@ -15,7 +15,7 @@ public class Water_Test_Report {
 	}
 	
 	public Water_Test_Report(Integer item_number, String item_name, Double item_concentration, Integer water_level,
-			SimpleDateFormat time, Integer unit_number) {
+			Date time, Integer unit_number) {
 		super();
 		this.item_number = item_number;
 		this.item_name = item_name;
@@ -57,22 +57,19 @@ public class Water_Test_Report {
 		this.water_level = water_level;
 	}
 
-	public SimpleDateFormat getTime() {
+	public Date getTime() {
 		return time;
 	}
 
-	public void setTime(SimpleDateFormat time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
-
 	public Integer getUnit_number() {
 		return unit_number;
 	}
-
 	public void setUnit_number(Integer unit_number) {
 		this.unit_number = unit_number;
 	}
-
 	@Override
 	public String toString() {
 		return "Water_Test_Report [item_number=" + item_number + ", item_name=" + item_name + ", item_concentration="

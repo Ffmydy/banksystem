@@ -48,6 +48,26 @@ public class PhoneCodeController {
 			return "error_registered";
 		}
 	}
+	@RequestMapping(value="/verifyIdentity.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Object verifyIdentity(String manage_phonenumber) throws ClientException{
+		System.out.println(manage_phonenumber);
+		Manage manage=service.checkphonenumber(manage_phonenumber);
+		if(manage==null){
+			return "error_not_register";
+		}
+		else{
+			RandomCode.setNewcode();
+	        String code = Integer.toString(RandomCode.getNewcode());
+			SendSmsResponse sendSmsResponse = sendCode(manage_phonenumber,code);
+			if(sendSmsResponse.getCode().equals("isv.MOBILE_NUMBER_ILLEGAL")){
+				return "error_phonenumber";
+			}
+			else{	
+				return code;
+			}	
+		}
+	}
 	public static SendSmsResponse sendCode(String manage_phonenumber,String code)throws ClientException{
 		//设置超时时间-可自行调整
 		System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
@@ -80,7 +100,7 @@ public class PhoneCodeController {
 	            System.out.println("短信发送成功！");
 	            //System.out.println(code);
 	        }else {
-	        	//System.out.println(sendSmsResponse.getCode());
+	        	System.out.println(sendSmsResponse.getCode());
 	            System.out.println("短信发送失败！");
 	        }
 	        return sendSmsResponse;

@@ -9,4 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selitemCount" resultType="Long">
 		select count(*) from water_test_report
 	</select>	
+	<delete id="deleteitem">
+		delete  from water_test_report where item_number=#{item_number}
+	</delete>
 </mapper>

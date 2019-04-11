@@ -28,10 +28,15 @@ public class WatertestServiceImpl implements IWatertestService {
 		map.put("pageStart",pageSize*(pageNumber-1));
 		map.put("pageSize", pageSize);
 		List<Water_Test_Report> list = dao.showitem(map);
+		System.out.println(list);
 		Long total=dao.selitemCount();
 		pi.setCount(total);
 		pi.setList(list);
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
+	}
+	@Override
+	public void deleteitem(int item_number) {
+		dao.deleteitem(item_number);
 	}
 }

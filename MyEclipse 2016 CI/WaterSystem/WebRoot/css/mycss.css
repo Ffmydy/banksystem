@@ -9,9 +9,30 @@
 }
 .menu-right .text{
 	margin-top:60px;
-	color:#ffffff;
 }
 .menu-right .text p{
 	text-indent: 2em;
 	font-size:15px;
+}
+.menu-right .table{
+	margin-left: 180px;
+	margin-top: 20px;
+}
+.menu-right .table tr{
+	width:50px;
+	height:20px;
+}
+.menu-right .updateitemdiv p{
+	margin-top: 1em;
+}
+.menu-right .updateitemdiv{
+	margin-left:350px;
+	margin-top:50px;
+}
+.menu-right .verifyidentity p{
+	margin-top:1em;
+}
+.menu-right .verifyidentity{
+	margin-left:350px;
+	margin-top: 50px;
 }
