@@ -15,8 +15,8 @@
 	font-size:15px;
 }
 .menu-right .table{
-	margin-left: 150px;
-	margin-top: 20px;
+	margin-left: 300px;
+	margin-top: 50px;
 }
 .menu-right .table tr{
 	width:50px;
@@ -26,13 +26,20 @@
 	margin-top: 1em;
 }
 .menu-right .updateitemdiv{
-	margin-left:350px;
+	margin-left:490px;
 	margin-top:50px;
 }
 .menu-right .verifyidentity p{
 	margin-top:1em;
 }
 .menu-right .verifyidentity{
-	margin-left:350px;
+	margin-left:480px;
 	margin-top: 50px;
+}
+.menu-right .additemdiv{
+	margin-left:490px;
+	margin-top:50px;
+}
+.menu-right .additemdiv p{
+	margin-top: 1em;
 }

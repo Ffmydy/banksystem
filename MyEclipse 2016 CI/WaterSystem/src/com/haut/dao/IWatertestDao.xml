@@ -16,4 +16,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update water_test_report set item_concentration=#{item_concentration},water_level=#{water_level},detection_time=#{detection_time},unit_number=#{unit_number}
 		where item_number=#{item_number}
 	</update>
+	<insert id="add_operation" >
+	    insert into water_test_operation(operation_managename,operation_itemnumber,operation_itemname,operation_time,operation_name) 
+	    values(#{operation_managename},#{operation_itemnumber},#{operation_itemname},#{operation_time},#{operation_name})
+	</insert>
+	<select id="check_itemnumber" resultType="Water_Test_Report">
+		select * from water_test_report where item_number=#{item_number}
+	</select>
+	<insert id="additem">
+		insert into water_test_report(item_number,item_name,item_concentration,water_level,detection_time,unit_number)
+		 values(#{item_number},#{item_name},#{item_concentration},#{water_level},#{detection_time},#{unit_number})
+	</insert>
 </mapper>

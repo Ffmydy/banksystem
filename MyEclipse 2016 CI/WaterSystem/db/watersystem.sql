@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 12/04/2019 11:38:07
+ Date: 12/04/2019 18:17:09
 */
 
 SET NAMES utf8mb4;
@@ -91,7 +91,7 @@ INSERT INTO `irrigation _water_ requirement` VALUES (13, 1961, 1, 0.00);
 -- ----------------------------
 DROP TABLE IF EXISTS `manage`;
 CREATE TABLE `manage`  (
-  `manage_number` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `manage_number` int(11) NOT NULL AUTO_INCREMENT,
   `manage_phonenumber` varchar(20) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   `manage_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `manage_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -99,14 +99,15 @@ CREATE TABLE `manage`  (
   `manage_age` int(2) DEFAULT NULL,
   `manage_photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`manage_number`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of manage
 -- ----------------------------
-INSERT INTO `manage` VALUES ('7', '13955415969', 'E10ADC3949BA59ABBE56E057F20F883E', '许卓玲', '女', 23, NULL);
-INSERT INTO `manage` VALUES ('8', '18637197687', 'E10ADC3949BA59ABBE56E057F20F883E', '杜玉', '男', 23, NULL);
-INSERT INTO `manage` VALUES ('9', '17766072459', 'E10ADC3949BA59ABBE56E057F20F883E', '方欣', '女', 23, NULL);
+INSERT INTO `manage` VALUES (7, '13955415969', 'E10ADC3949BA59ABBE56E057F20F883E', '许卓玲', '女', 23, NULL);
+INSERT INTO `manage` VALUES (8, '18637197687', 'E10ADC3949BA59ABBE56E057F20F883E', '杜玉', '男', 23, NULL);
+INSERT INTO `manage` VALUES (9, '17766072459', 'E10ADC3949BA59ABBE56E057F20F883E', '方欣', '女', 23, NULL);
+INSERT INTO `manage` VALUES (10, '18856976325', 'E10ADC3949BA59ABBE56E057F20F883E', '杜立', '男', 23, NULL);
 
 -- ----------------------------
 -- Table structure for reservoir_water_evaporation
@@ -138,13 +139,51 @@ INSERT INTO `reservoir_water_evaporation` VALUES (12, 1960, 12, 20.9);
 INSERT INTO `reservoir_water_evaporation` VALUES (13, 1961, 1, 17.2);
 
 -- ----------------------------
+-- Table structure for water_test_operation
+-- ----------------------------
+DROP TABLE IF EXISTS `water_test_operation`;
+CREATE TABLE `water_test_operation`  (
+  `operation_id` int(255) NOT NULL AUTO_INCREMENT,
+  `operation_managename` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `operation_itemnumber` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `operation_itemname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `operation_time` date DEFAULT NULL,
+  `operation_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`operation_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of water_test_operation
+-- ----------------------------
+INSERT INTO `water_test_operation` VALUES (4, '杜立', '100002', '高锰酸盐', '2019-04-12', '修改');
+INSERT INTO `water_test_operation` VALUES (5, '杜立', '100001', '二氧化硫', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (6, '杜立', '100001', '二氧化硫', '2019-04-12', '删除');
+INSERT INTO `water_test_operation` VALUES (7, '方欣', '100001', '氟化物', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (8, '方欣', '100007', '磷', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (9, '方欣', '100008', '铜', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (10, '方欣', '100009', '锌', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (11, '方欣', '100010', '硒', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (12, '方欣', '100011', '砷', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (13, '方欣', '100012', '镉', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (14, '方欣', '100013', '六价铬', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (15, '方欣', '100014', '铅', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (16, '方欣', '100015', '氰化物', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (17, '方欣', '100016', '挥发酚', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (18, '方欣', '100017', '阴离子表面活性剂', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (19, '方欣', '100018', '硫化物', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (20, '方欣', '100019', '氯化物', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (21, '方欣', '100020', '硫酸根', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (22, '方欣', '100021', '硝酸盐氮', '2019-04-12', '添加');
+INSERT INTO `water_test_operation` VALUES (23, '方欣', '100022', '铁', '2019-04-12', '添加');
+
+-- ----------------------------
 -- Table structure for water_test_report
 -- ----------------------------
 DROP TABLE IF EXISTS `water_test_report`;
 CREATE TABLE `water_test_report`  (
   `item_number` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `item_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `item_concentration` double(10, 2) DEFAULT NULL,
+  `item_concentration` double(10, 5) DEFAULT NULL,
   `water_level` int(2) DEFAULT NULL COMMENT '(0-5)依次基本越高，水质越差',
   `detection_time` date DEFAULT NULL,
   `unit_number` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -156,12 +195,28 @@ CREATE TABLE `water_test_report`  (
 -- ----------------------------
 -- Records of water_test_report
 -- ----------------------------
-INSERT INTO `water_test_report` VALUES ('100000', '溶解氧', 2.80, 5, '2019-04-01', '200000');
-INSERT INTO `water_test_report` VALUES ('100001', 'PH', 8.50, 5, '2019-04-06', '200000');
-INSERT INTO `water_test_report` VALUES ('100002', '高锰酸盐', 5.90, 4, '2019-04-18', '200000');
-INSERT INTO `water_test_report` VALUES ('100003', '化学需氧量', 32.30, 3, '2019-04-22', '200000');
-INSERT INTO `water_test_report` VALUES ('100004', '五日生化需氧量', 4.20, 5, '2019-04-14', '200000');
-INSERT INTO `water_test_report` VALUES ('100005', '氨氮', 0.27, 2, '2019-03-25', '200000');
+INSERT INTO `water_test_report` VALUES ('100001', '氟化物', 0.70000, 2, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100002', '高锰酸盐', 3.50000, 1, '2019-04-01', '200000');
+INSERT INTO `water_test_report` VALUES ('100003', '化学需氧量', 32.30000, 3, '2019-04-22', '200000');
+INSERT INTO `water_test_report` VALUES ('100004', '五日生化需氧量', 4.20000, 5, '2019-04-14', '200000');
+INSERT INTO `water_test_report` VALUES ('100005', '氨氮', 0.27000, 2, '2019-03-25', '200000');
+INSERT INTO `water_test_report` VALUES ('100006', '二氧化硫', 0.07000, 1, '2019-04-09', '200000');
+INSERT INTO `water_test_report` VALUES ('100007', '磷', 0.03000, 1, '2019-04-09', '200000');
+INSERT INTO `water_test_report` VALUES ('100008', '铜', 0.01000, 1, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100009', '锌', 0.05000, 1, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100010', '硒', 0.00100, 1, '2019-04-01', '200000');
+INSERT INTO `water_test_report` VALUES ('100011', '砷', 0.00100, 1, '2019-04-01', '200000');
+INSERT INTO `water_test_report` VALUES ('100012', '镉', 0.00100, 1, '2019-04-10', '200000');
+INSERT INTO `water_test_report` VALUES ('100013', '六价铬', 0.00400, 2, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100014', '铅', 0.00400, 1, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100015', '氰化物', 0.00400, 1, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100016', '挥发酚', 0.00400, 1, '2019-04-03', '200000');
+INSERT INTO `water_test_report` VALUES ('100017', '阴离子表面活性剂', 0.00500, 1, '2019-04-04', '200000');
+INSERT INTO `water_test_report` VALUES ('100018', '硫化物', 0.02200, 2, '2019-04-03', '200000');
+INSERT INTO `water_test_report` VALUES ('100019', '氯化物', 108.00000, 5, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100020', '硫酸根', 56.00000, 5, '2019-04-03', '200000');
+INSERT INTO `water_test_report` VALUES ('100021', '硝酸盐氮', 0.94000, 5, '2019-04-02', '200000');
+INSERT INTO `water_test_report` VALUES ('100022', '铁', 0.03000, 2, '2019-04-02', '200000');
 
 -- ----------------------------
 -- View structure for count_month_evaporation

@@ -1,10 +1,14 @@
 package com.haut.service;
 
+
 import com.haut.beans.PageInfo;
+import com.haut.beans.Water_Test_Operation;
 import com.haut.beans.Water_Test_Report;
 
 public interface IWatertestService {
 	PageInfo showitem(int pageSize, int pageNumber);
-	void deleteitem(int item_number);
-	void updateitem(Water_Test_Report water_test_report);
+	void deleteitem(String item_number, Water_Test_Operation water_test_operation);
+	void updateitem(Water_Test_Report water_test_report, Water_Test_Operation water_test_operation);
+	void additem(Water_Test_Report water_test_report, Water_Test_Operation water_test_operation);
+	Water_Test_Report check_itemnumber(String item_number);
 }

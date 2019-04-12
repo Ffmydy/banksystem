@@ -72,11 +72,11 @@
                     sms=result;
                     if(sms=="error_phonenumber"){
                     	alert("手机号非法，请重新输入")
-                    	window.location.href="verifyidentity.jsp";
+                    	window.location.href="verifyidentity_modifyitem.jsp";
                     }
                     if(sms=="error_not_register"){
                     	alert("您输入的手机号 没有注册，请查证后再输入")
-                    	window.location.href="verifyidentity.jsp";
+                    	window.location.href="verifyidentity_modifyitem.jsp";
                     }
                 }
             });

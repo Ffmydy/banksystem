@@ -7,9 +7,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-
-
 import com.haut.beans.PageInfo;
+import com.haut.beans.Water_Test_Operation;
 import com.haut.beans.Water_Test_Report;
 import com.haut.dao.IWatertestDao;
 @Service("watertestService")
@@ -36,11 +35,24 @@ public class WatertestServiceImpl implements IWatertestService {
 		return pi;
 	}
 	@Override
-	public void deleteitem(int item_number) {
+	public void deleteitem(String item_number,Water_Test_Operation water_test_operation) {
 		dao.deleteitem(item_number);
+		dao.add_operation(water_test_operation);
 	}
 	@Override
-	public void updateitem(Water_Test_Report water_test_report) {
+	public void updateitem(Water_Test_Report water_test_report,Water_Test_Operation water_test_operation) {
+		dao.add_operation(water_test_operation);
 		dao.updateitem(water_test_report);	
+	}
+	@Override
+	public void additem(Water_Test_Report water_test_report, Water_Test_Operation water_test_operation) {
+		dao.add_operation(water_test_operation);
+		dao.additem(water_test_report);
+		
+	}
+	@Override
+	public Water_Test_Report check_itemnumber(String item_number) {
+		Water_Test_Report water_Test_Report =dao.check_itemnumber(item_number);
+		return water_Test_Report;
 	}
 }

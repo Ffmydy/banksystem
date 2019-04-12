@@ -5,16 +5,6 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="css/mycss.css" />
-<script type="text/javascript">
-	function suredelete(){
-	if(window.confirm("你确定删除这个水检项目？")){
-	window.location="deleteprogram.do?item_number=${pi.item_number}"
-	}
-	else{
-	   window.location="checkprogram.do"
-	}
-	}
-</script>
 </head>
 <body>
 	<jsp:include page="model.jsp" />
@@ -39,7 +29,7 @@
 						<td>${pi.water_level }</td>
 						<td>${pi.detection_time }</td>
 						<td>${pi.unit_number }</td>
-						<td><a href="deleteprogram.do?item_number=${pi.item_number}" onclick="suredelete()">删除&nbsp&nbsp&nbsp&nbsp</a><a href="verifyidentity.jsp?item_number=${pi.item_number }&item_name=${pi.item_name}">修改</a>
+						<td><a href="verifyidentity_deleteitem.jsp?item_number=${pi.item_number}&item_name=${pi.item_name}">删除&nbsp&nbsp&nbsp&nbsp</a><a href="verifyidentity_modifyitem.jsp?item_number=${pi.item_number }&item_name=${pi.item_name}">修改</a>
 					</tr>
 				</c:forEach>
 				<tr>
@@ -51,7 +41,7 @@
 							href="checkprogram.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
 							<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
 							第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
-							(共${PageInfo.count}条数据）</td>
+							(共${PageInfo.count}条数据）<a href="add_wateritem.jsp">添加项目</a></td>
 					</tr>
 			</table>
 		</div>
