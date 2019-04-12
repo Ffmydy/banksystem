@@ -1,7 +1,7 @@
 package com.haut.beans;
 
 public class Boss {
-	private Integer boss_number;
+	private String boss_number;
 	private String boss_name;
 	private Integer boss_age;
 	private char boss_sex;
@@ -12,7 +12,7 @@ public class Boss {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Boss(Integer boss_number, String boss_name, Integer boss_age, char boss_sex, String boss_phonenumber,
+	public Boss(String boss_number, String boss_name, Integer boss_age, char boss_sex, String boss_phonenumber,
 			String boss_email, String boss_phote) {
 		super();
 		this.boss_number = boss_number;
@@ -23,10 +23,10 @@ public class Boss {
 		this.boss_email = boss_email;
 		this.boss_phote = boss_phote;
 	}
-	public Integer getBoss_number() {
+	public String getBoss_number() {
 		return boss_number;
 	}
-	public void setBoss_number(Integer boss_number) {
+	public void setBoss_number(String boss_number) {
 		this.boss_number = boss_number;
 	}
 	public String getBoss_name() {

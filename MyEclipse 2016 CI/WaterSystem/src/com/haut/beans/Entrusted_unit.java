@@ -1,19 +1,19 @@
 package com.haut.beans;
 
 public class Entrusted_unit {
-	private Integer unit_number;//单位编号
+	private String unit_number;//单位编号
 	private String unit_name;//单位名称
 	private String unit_address;//单位地址
 	private String unit_phonenumber;//单位电话
-	private Integer boss_number;//单位老板编号
+	private String boss_number;//单位老板编号
 	
 	public Entrusted_unit() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Entrusted_unit(Integer unit_number, String unit_name, String unit_address, String unit_phonenumber,
-			Integer boss_number) {
+	public Entrusted_unit(String unit_number, String unit_name, String unit_address, String unit_phonenumber,
+			String boss_number) {
 		super();
 		this.unit_number = unit_number;
 		this.unit_name = unit_name;
@@ -22,11 +22,11 @@ public class Entrusted_unit {
 		this.boss_number = boss_number;
 	}
 
-	public Integer getUnit_number() {
+	public String getUnit_number() {
 		return unit_number;
 	}
 
-	public void setUnit_number(Integer unit_number) {
+	public void setUnit_number(String unit_number) {
 		this.unit_number = unit_number;
 	}
 
@@ -54,11 +54,11 @@ public class Entrusted_unit {
 		this.unit_phonenumber = unit_phonenumber;
 	}
 
-	public Integer getBoss_number() {
+	public String getBoss_number() {
 		return boss_number;
 	}
 
-	public void setBoss_number(Integer boss_number) {
+	public void setBoss_number(String boss_number) {
 		this.boss_number = boss_number;
 	}
 	@Override

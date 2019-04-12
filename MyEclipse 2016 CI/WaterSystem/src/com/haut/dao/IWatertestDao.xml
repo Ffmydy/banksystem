@@ -12,4 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteitem">
 		delete  from water_test_report where item_number=#{item_number}
 	</delete>
+	<update id="updateitem">
+		update water_test_report set item_concentration=#{item_concentration},water_level=#{water_level},detection_time=#{detection_time},unit_number=#{unit_number}
+		where item_number=#{item_number}
+	</update>
 </mapper>

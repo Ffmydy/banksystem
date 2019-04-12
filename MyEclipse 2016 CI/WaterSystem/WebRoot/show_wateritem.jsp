@@ -11,7 +11,7 @@
 	window.location="deleteprogram.do?item_number=${pi.item_number}"
 	}
 	else{
-	window.location="checkprogram.do"
+	   window.location="checkprogram.do"
 	}
 	}
 </script>
@@ -37,7 +37,7 @@
 						<td>${pi.item_name }</td>
 						<td>${pi.item_concentration }</td>
 						<td>${pi.water_level }</td>
-						<td>${pi.time }</td>
+						<td>${pi.detection_time }</td>
 						<td>${pi.unit_number }</td>
 						<td><a href="deleteprogram.do?item_number=${pi.item_number}" onclick="suredelete()">删除&nbsp&nbsp&nbsp&nbsp</a><a href="verifyidentity.jsp?item_number=${pi.item_number }&item_name=${pi.item_name}">修改</a>
 					</tr>

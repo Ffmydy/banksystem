@@ -10,7 +10,6 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="css/mycss.css" />
-
 </head>
 <body>
 
@@ -18,7 +17,8 @@
 	<div class="menu-right">
 		<div class="l-tab-links"></div>
 		<div class="updateitemdiv">
-			<form action="">
+			<form action="updateprogram.do" method="post">
+				<div class="errormessage">${error }</div>
 				<p class="updateitem">
 					项目编号:<input type="text"
 						value="<%=session.getAttribute("item_number")%>"
@@ -26,7 +26,7 @@
 				</p>
 				<p class="updateitem">
 					项目名称:<input type="text"
-						value="<%=session.getAttribute("item_name")%>" name="itme_name"
+						value="<%=session.getAttribute("item_name")%>" name="item_name"
 						readonly="readonly" />
 				</p>
 				<p class="updateitem">
@@ -36,10 +36,13 @@
 					成分等级:<input type="text" name="water_level" />
 				</p>
 				<p class="updateitem">
-					检测时间:<input type="date" name="time" />
+					检测时间:<input type="date" name="detection_time" />
 				</p>
 				<p class="updateitem">
 					单位编号:<input type="text" name="unit_number" />
+				</p>
+				<p> 
+					<input type="submit" value="修改" onclick="javascript:return confirm('确认修改该项目信息？');"/>&nbsp&nbsp&nbsp&nbsp<input type="reset" value="重置"/>
 				</p>
 			</form>
 		</div>

@@ -39,4 +39,8 @@ public class WatertestServiceImpl implements IWatertestService {
 	public void deleteitem(int item_number) {
 		dao.deleteitem(item_number);
 	}
+	@Override
+	public void updateitem(Water_Test_Report water_test_report) {
+		dao.updateitem(water_test_report);	
+	}
 }

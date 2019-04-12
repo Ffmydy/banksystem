@@ -98,7 +98,7 @@ public class PhoneCodeController {
 		  SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
 		  if(sendSmsResponse.getCode()!= null && sendSmsResponse.getCode().equals("OK")){
 	            System.out.println("短信发送成功！");
-	            //System.out.println(code);
+	            System.out.println(code);
 	        }else {
 	        	System.out.println(sendSmsResponse.getCode());
 	            System.out.println("短信发送失败！");
