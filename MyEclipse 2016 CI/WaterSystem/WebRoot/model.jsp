@@ -65,8 +65,12 @@
 							<p class="zcd" id="zcd5">
 								<a href="checkprogram.do">水检项目表</a>
 							</p>
-							<p class="zcd" id="zcd6">水检单位表</p>
-							<p class="zcd" id="zcd7">水检负责人</p>
+							<p class="zcd" id="zcd6">
+								<a href="checkunit.do">水检单位表</a>
+							</p>
+							<p class="zcd" id="zcd7">
+								<a href="checkboss.do">水检负责人</a>
+							</p>
 						</div></li>
 					<li class="menu-list-01"><a href="#">
 							<p class="fumenu">订单管理</p> <img class="xiala"
