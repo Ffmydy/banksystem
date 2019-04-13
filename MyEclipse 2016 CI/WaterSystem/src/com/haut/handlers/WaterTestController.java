@@ -51,6 +51,25 @@ public class WaterTestController {
 		mv.setViewName("forward:/show_wateritem.jsp");
 		return mv;
 	}
+	@RequestMapping("/checkunqualified_program.do")
+	public ModelAndView docheckunqualified_program(HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		pi=service.show_unqualified_item(pageSize, pageNumber);
+		mv.addObject("PageInfo", pi);
+		mv.setViewName("forward:/show_water_unqualified_item.jsp");
+		return mv;
+	}
 	@RequestMapping("/deleteprogram.do")
 	public ModelAndView dodeleteprogram(HttpSession session){
 		ModelAndView mv=new ModelAndView();

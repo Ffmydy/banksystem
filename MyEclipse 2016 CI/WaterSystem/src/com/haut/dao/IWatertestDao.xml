@@ -27,4 +27,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into water_test_report(item_number,item_name,item_concentration,water_level,detection_time,unit_number)
 		 values(#{item_number},#{item_name},#{item_concentration},#{water_level},#{detection_time},#{unit_number})
 	</insert>
+	<select id="selunqualifieditemCount" resultType="Long">
+		select count(*) from water_test_report where water_level=4 or water_level=5
+	</select>
+	<select id="show_unqualified_item" resultType="Water_Test_Report" parameterType="map">
+		select * from water_test_report where water_level=4 or water_level=5 limit #{pageStart},#{pageSize} 
+	</select>
 </mapper>

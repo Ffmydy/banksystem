@@ -65,6 +65,12 @@
 							<p class="zcd" id="zcd5">
 								<a href="checkprogram.do">水检项目表</a>
 							</p>
+							<p class="zcd">
+								<a href="checkunqualified_program.do">不合格项目表</a>
+							</p>
+							<p class="zcd">
+								<a href="checkoperation.do">管理操作表</a>
+							</p>
 							<p class="zcd" id="zcd6">
 								<a href="checkunit.do">水检单位表</a>
 							</p>

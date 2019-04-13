@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haut.dao.IManageoperationDao">
+	<select id="show_manageoperation" resultType="Water_Test_Operation" parameterType="map">
+		select * from water_test_operation limit #{pageStart},#{pageSize}
+	</select>
+	<select id="sel_operation_Count" resultType="Long">
+		select count(*) from water_test_operation
+	</select>
+</mapper>

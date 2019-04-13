@@ -14,4 +14,6 @@ public interface IWatertestDao {
 	void add_operation(Water_Test_Operation water_test_operation);//增加水检项目操作(包括修改、添加和删除操作)
 	Water_Test_Report check_itemnumber(String item_number);//添加水检项目时，检查项目编号是否存在
 	void additem(Water_Test_Report water_test_report);//添加水检项目
+	List<Water_Test_Report> show_unqualified_item(Map<String, Object> map);
+	Long selunqualifieditemCount();
 }
