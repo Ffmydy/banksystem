@@ -22,6 +22,9 @@
 	width:50px;
 	height:20px;
 }
+.menu-right .table #water_requirement td{
+	width: 130px;
+}
 .menu-right .updateitemdiv p{
 	margin-top: 1em;
 }
@@ -42,4 +45,12 @@
 }
 .menu-right .additemdiv p{
 	margin-top: 1em;
+}
+.menu-right .query{
+	width: 300px;
+	height: 10px;
+}
+.menu-right #table{
+	margin-left: 350px;
+	margin-top: 20px;
 }

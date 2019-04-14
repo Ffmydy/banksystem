@@ -55,10 +55,10 @@
 .col-xs-6{width:68%;float:left;}
 .frame{background:url(../img/bg_img.png) repeat;position:relative;border:1px solid #ddd;}
 .table-list thead{background:#ededed;line-height:30px;}
-.table{width:100%;display:table;}
-.table thead tr th{padding:5px 10px;line-height:23px;vertical-align:middle;}
+
+
 .table-list  thead th{text-align:center;}
-.table tbody tr td{padding:5px 10px;line-height:23px;vertical-align:middle;border-bottom:1px solid #ddd;color:#666;text-align:center;}
+.table tbody tr td{padding:5px 10px;line-height:20px;vertical-align:middle;border-bottom:1px solid #ddd;color:#666;text-align:center;}
 .table-list  em{background:#f33;color:#fff;display:block;width:20px;height:20px;text-align:center;vertical-align:middle;}
 
 /*仓库管理*/

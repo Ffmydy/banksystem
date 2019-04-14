@@ -79,11 +79,13 @@
 							</p>
 						</div></li>
 					<li class="menu-list-01"><a href="#">
-							<p class="fumenu">订单管理</p> <img class="xiala"
+							<p class="fumenu">水需管理</p> <img class="xiala"
 							src="images/xiala.png" />
 					</a>
 						<div class="list-p">
-							<p class="zcd" id="zcd8">下单账户</p>
+							<p class="zcd" id="zcd8">
+								<a href="checkwater_requirement.do">各月份水需求量</a>
+							</p>
 							<p class="zcd" id="zcd9">所属员工</p>
 							<p class="zcd" id="zcd10">订单成本</p>
 							<p class="zcd" id="zcd1">订单成本费用</p>

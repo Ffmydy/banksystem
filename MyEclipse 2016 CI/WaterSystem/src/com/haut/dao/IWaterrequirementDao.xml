@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haut.dao.IWaterrequirementDao">
+	<select id="show_water_requirement" resultType="Irrigation_Water_Requirement" parameterType="map">
+		select * from irrigation_water_requirement limit #{pageStart},#{pageSize}
+	</select>
+	<select id="sel_waterrequirement_Count" resultType="Long">
+		select count(*) from irrigation_water_requirement
+	</select>
+	<select id="check_somemonth_water_requirement" resultType="Irrigation_Water_Requirement">
+		select * from irrigation_water_requirement where year=#{0} and month=#{1}
+	</select>
+</mapper>
