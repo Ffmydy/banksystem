@@ -1,9 +1,19 @@
 package com.haut.beans;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class Irrigation_Water_Requirement {
 	private Integer water_requirement_id;
+	@NotNull(message="年份不能为空")
 	private Integer year;
+	@NotNull(message="月份不能为空")
+	@Min(value=1,message="月份至少为1")
+	@Max(value=12,message="月份不能超过12")
 	private Integer month;
+	@NotNull(message="水需量不能为空")
 	private Double water_requirement;
 	public Irrigation_Water_Requirement() {
 		super();

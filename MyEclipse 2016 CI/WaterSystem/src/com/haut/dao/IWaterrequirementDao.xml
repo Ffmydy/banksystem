@@ -12,4 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="check_somemonth_water_requirement" resultType="Irrigation_Water_Requirement">
 		select * from irrigation_water_requirement where year=#{0} and month=#{1}
 	</select>
+	<select id="isempty" resultType="Irrigation_Water_Requirement">
+		select * from irrigation_water_requirement where year=#{year} and month=#{month}
+	</select>
+	<insert id="add_water_requirement">
+		insert into irrigation_water_requirement(year,month,water_requirement) values(#{year},#{month},#{water_requirement})
+	</insert>
 </mapper>

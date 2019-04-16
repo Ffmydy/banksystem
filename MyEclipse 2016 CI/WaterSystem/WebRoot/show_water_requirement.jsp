@@ -65,7 +65,7 @@
 						href="checkwater_requirement.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
 						<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
 						第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
-						(共${PageInfo.count}条数据）</td>
+						(共${PageInfo.count}条数据) <a href="add_water_requirement.jsp">添加月需水量</a></td>
 				</tr>
 			</table>
 		</div>

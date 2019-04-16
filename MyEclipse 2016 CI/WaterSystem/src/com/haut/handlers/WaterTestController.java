@@ -90,7 +90,7 @@ public class WaterTestController {
 	public ModelAndView doupdateprogram(@Validated Water_Test_Report water_test_report,BindingResult br,HttpServletRequest request,HttpSession session){
 		ModelAndView mv=new ModelAndView();
 		List<ObjectError> errors=br.getAllErrors();
-		System.out.println(water_test_report);
+		//System.out.println(water_test_report);
 		if(errors.size()>0){
 			FieldError item_numberError=br.getFieldError("item_number");
 			FieldError itme_nameError=br.getFieldError("item_name");

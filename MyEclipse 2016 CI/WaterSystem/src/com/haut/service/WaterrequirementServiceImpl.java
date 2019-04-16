@@ -40,5 +40,14 @@ public class WaterrequirementServiceImpl implements IWaterrequirementService {
 	public Irrigation_Water_Requirement check_somemonth_water_requirement(int year, int month) {
 		return dao.check_somemonth_water_requirement(year,month);
 	}
+	@Override
+	public Irrigation_Water_Requirement isempty(Irrigation_Water_Requirement irrigation_water_requirement) {
+		return dao.isempty(irrigation_water_requirement);
+	}
+	@Override
+	public void add_water_requirement(Irrigation_Water_Requirement irrigation_water_requirement) {
+		dao.add_water_requirement(irrigation_water_requirement);
+		
+	}
 	
 }
