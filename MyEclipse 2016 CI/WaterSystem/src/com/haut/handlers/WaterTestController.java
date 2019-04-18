@@ -192,4 +192,12 @@ public class WaterTestController {
 			
 		}
 	}
+	@RequestMapping("/querybyitem_number.do")
+	public ModelAndView querybyitem_number(String item_number){
+		ModelAndView mv=new ModelAndView();
+		Water_Test_Report water_test_report=service.check_itemnumber(item_number);
+			mv.setViewName("/show_querybyitem_number.jsp");
+			mv.addObject("water_test_report", water_test_report);
+			return mv;
+	}
 }

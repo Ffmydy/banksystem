@@ -10,6 +10,15 @@
 	<jsp:include page="model.jsp" />
 	<div class="menu-right">
 	<div class="l-tab-links"></div>
+	<div class="query">
+		<div class="querybyitem_number">
+			<font size="4px" color="red">根据项目编号查询：</font>
+			<form action="querybyitem_number.do" method="get">
+				<input type="text" name="item_number"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
+	</div>
 		<div class="table">
 			<table border="1px" >
 				<tr class="head">
