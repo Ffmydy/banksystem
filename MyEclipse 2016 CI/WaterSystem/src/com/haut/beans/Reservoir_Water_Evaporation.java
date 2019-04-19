@@ -1,7 +1,7 @@
 package com.haut.beans;
 
 public class Reservoir_Water_Evaporation {
-	private Integer id;
+	private Integer water_evaporation_id;
 	private Integer year;
 	private Integer month;
 	private Double water_evaporation;
@@ -15,11 +15,11 @@ public class Reservoir_Water_Evaporation {
 		this.month = month;
 		this.water_evaporation = water_evaporation;
 	}
-	public Integer getId() {
-		return id;
+	public Integer getWater_evaporation_id() {
+		return water_evaporation_id;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setWater_evaporation_id(Integer water_evaporation_id) {
+		this.water_evaporation_id = water_evaporation_id;
 	}
 	public Integer getYear() {
 		return year;
@@ -41,9 +41,7 @@ public class Reservoir_Water_Evaporation {
 	}
 	@Override
 	public String toString() {
-		return "Reservoir_Water_Evaporation [id=" + id + ", year=" + year + ", month=" + month + ", water_evaporation="
-				+ water_evaporation + "]";
+		return "Reservoir_Water_Evaporation [water_evaporation_id=" + water_evaporation_id + ", year=" + year
+				+ ", month=" + month + ", water_evaporation=" + water_evaporation + "]";
 	}
-	
-
 }

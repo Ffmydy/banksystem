@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haut.dao.IWaterevaporationDao">
+	<select id="show_water_evaporation" resultType="Reservoir_Water_Evaporation" parameterType="map">
+		select * from reservoir_water_evaporation limit #{pageStart},#{pageSize}
+	</select>
+	<select id="sel_waterevaporation_Count" resultType="Long">
+		select count(*) from reservoir_water_evaporation
+	</select>
+</mapper>
