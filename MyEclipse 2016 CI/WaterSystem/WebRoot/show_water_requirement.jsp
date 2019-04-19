@@ -37,7 +37,38 @@
 			年份:<input type="text" name="year"/>
 			<input type="submit" value="查询"/>
 			</form>
-		</div></div>
+		</div>
+		<br/>
+		<br/>
+		<div class="countrequirement_bymonth"><font size="4px" color="red">按月计算需水量</font>
+			<form action="count_requirement_bymonth.do" method="get">
+			月份:<select name="month">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+				</select>
+				<input type="submit" value="计算"/>
+			</form>
+		</div>
+		<br/>
+		<br/>
+		<div class="countrequirement_byyear"><font size="4px" color="red">按年计算需水量</font>
+			<form action="count_requirement_byyear.do" method="get">
+			年份：<input type="text" name="year" />
+			<input type="submit" value="计算"/>
+			</form>
+		</div>
+		
+		</div>
 		
 		<div class="table" id="table">
 			<table border="1px">

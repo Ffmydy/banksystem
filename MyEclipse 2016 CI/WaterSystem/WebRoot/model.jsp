@@ -86,21 +86,16 @@
 							<p class="zcd" id="zcd8">
 								<a href="checkwater_requirement.do">各月份水需求量</a>
 							</p>
-							<p class="zcd" id="zcd9">所属员工</p>
-							<p class="zcd" id="zcd10">订单成本</p>
-							<p class="zcd" id="zcd1">订单成本费用</p>
-							<p class="zcd" id="zcd12">订单总支付金额</p>
-							<p class="zcd" id="zcd3">订单商品</p>
-							<p class="zcd" id="zcd14">手动增加订单</p>
 						</div></li>
 
 					<li class="menu-list-02"><a href="#">
-							<p class="fumenu">财务管理</p> <img class="xiala"
+							<p class="fumenu">蒸发管理</p> <img class="xiala"
 							src="images/xiala.png" />
 					</a>
 						<div class="list-p">
-							<p class="zcd" id="zcd15">记录出款和入款</p>
-							<p class="zcd" id="zcd16">计算一段时间的利润</p>
+							<p class="zcd" id="zcd15">
+								<a href="checkwater_evaporation.do">各月份水蒸发量</a>
+							</p>
 						</div></li>
 
 					<li class="menu-list-01"><a href="#">

@@ -8,9 +8,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.haut.beans.Count_Requirement_Bymonth;
+import com.haut.beans.Count_Requirement_Byyear;
 import com.haut.beans.Irrigation_Water_Requirement;
 import com.haut.beans.PageInfo;
-import com.haut.beans.Water_Test_Operation;
 import com.haut.dao.IWaterrequirementDao;
 @Service("waterRequirementService")
 
@@ -48,6 +49,16 @@ public class WaterrequirementServiceImpl implements IWaterrequirementService {
 	public void add_water_requirement(Irrigation_Water_Requirement irrigation_water_requirement) {
 		dao.add_water_requirement(irrigation_water_requirement);
 		
+	}
+	@Override
+	public Count_Requirement_Bymonth count_requirement_bymonth(int month) {
+		Count_Requirement_Bymonth count_requirement_bymonth=dao.count_requirement_bymonth(month);
+		return count_requirement_bymonth;
+	}
+	@Override
+	public Count_Requirement_Byyear count_requirement_byyear(int year) {
+		Count_Requirement_Byyear count_requirement_byyear=dao.count_requirement_byyear(year);
+		return count_requirement_byyear;
 	}
 	
 }

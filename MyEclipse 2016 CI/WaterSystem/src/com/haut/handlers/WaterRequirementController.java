@@ -15,6 +15,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.haut.beans.Count_Requirement_Bymonth;
+import com.haut.beans.Count_Requirement_Byyear;
 import com.haut.beans.Irrigation_Water_Requirement;
 import com.haut.beans.PageInfo;
 import com.haut.service.IWaterrequirementService;
@@ -87,5 +89,22 @@ public class WaterRequirementController {
 				return mv;
 			}
 		}
+	}
+	@RequestMapping("/count_requirement_bymonth.do")
+	public ModelAndView docount_reuqirement_bymonth(int month){
+		ModelAndView mv=new ModelAndView();
+		Count_Requirement_Bymonth count_requirement_bymonth=service.count_requirement_bymonth(month);
+		//System.out.println(count_requirement_bymonth);
+		mv.addObject("count_requirement_bymonth", count_requirement_bymonth);
+		mv.setViewName("/count_requirement_bymonth.jsp");
+		return mv;
+	}
+	@RequestMapping("/count_requirement_byyear.do")
+	public ModelAndView docount_requirement_byyear(int year){
+		ModelAndView mv=new ModelAndView();
+		Count_Requirement_Byyear count_requirement_byyear=service.count_requirement_byyear(year);
+		mv.addObject("count_requirement_byyear",count_requirement_byyear);
+		mv.setViewName("/count_requirement_byyear.jsp");
+		return mv;
 	}
 }

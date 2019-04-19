@@ -18,4 +18,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="add_water_requirement">
 		insert into irrigation_water_requirement(year,month,water_requirement) values(#{year},#{month},#{water_requirement})
 	</insert>
+	<select id="count_requirement_bymonth" resultType="Count_Requirement_Bymonth">
+		select * from count_month_requirement where month=#{month}
+	</select>
+	<select id="count_requirement_byyear" resultType="Count_Requirement_Byyear">
+		select * from count_year_requirement where year=#{year}
+	</select>
 </mapper>

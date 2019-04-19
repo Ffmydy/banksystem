@@ -7,11 +7,6 @@
 <link type="text/css" rel="stylesheet" href="css/mycss.css" />
 </head>
 <body>
-<c:if test="${not empty error }">
-	<script type="text/javascript">
-	alert('${error}')
-	</script>
-</c:if>
 	<jsp:include page="model.jsp" />
 	<div class="menu-right">
 		<div class="l-tab-links"></div>
@@ -77,31 +72,14 @@
 			<table border="1px">
 				<tr class="head" id="water_requirement">
 					<td>年份</td>
-					<td>月份</td>
-					<td>月需水量</td>
-					<td>操作</td>
+					<td>该年份每月需水量之和</td>
+					<td>该年份每月平均需水量</td>
 				</tr>
-			<form action="add_water_requirement.do" method="post">
-			     <tr>
-					<td><input type="text" name="year"/></td>
-					<td><select name="month">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-					<option>11</option>
-					<option>12</option>
-				    </select></td>
-					<td><input type="text" name="water_requirement"/></td>
-					<td><input type="submit" value="添加" /></td>
+				<tr>
+					<td>${count_requirement_byyear.year }</td>
+					<td>${count_requirement_byyear.year_water_requirement }</td>
+					<td>${count_requirement_byyear.year_average_water_requirement }</td>
 				</tr>
-			</form>
 			</table>
 		</div>
 	</div>
