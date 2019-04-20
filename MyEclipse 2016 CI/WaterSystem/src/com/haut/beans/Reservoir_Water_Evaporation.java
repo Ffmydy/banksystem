@@ -1,9 +1,18 @@
 package com.haut.beans;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class Reservoir_Water_Evaporation {
 	private Integer water_evaporation_id;
+	@NotNull(message="年份不能为空")
 	private Integer year;
+	@NotNull(message="月份不能为空")
+	@Min(value=1,message="月份至少为1")
+	@Max(value=12,message="月份不能超过12")
 	private Integer month;
+	@NotNull(message="蒸发量不能为空")
 	private Double water_evaporation;
 	public Reservoir_Water_Evaporation() {
 		super();

@@ -3,7 +3,6 @@ package com.haut.beans;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 public class Irrigation_Water_Requirement {
 	private Integer water_requirement_id;

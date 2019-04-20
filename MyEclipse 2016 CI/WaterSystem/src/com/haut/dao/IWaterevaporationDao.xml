@@ -9,4 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="sel_waterevaporation_Count" resultType="Long">
 		select count(*) from reservoir_water_evaporation
 	</select>
+	<select id="isempty" resultType="Reservoir_Water_Evaporation">
+		select * from reservoir_water_evaporation where year=#{year} and month=#{month}
+	</select>
+	<insert id="add_water_evaporation">
+		insert into reservoir_water_evaporation(year,month,water_evaporation) values(#{year},#{month},#{water_evaporation})
+	</insert>
 </mapper>

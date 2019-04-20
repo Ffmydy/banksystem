@@ -36,4 +36,13 @@ public class WaterevaporationServiceImpl implements IWaterevaporationService {
 		return pi;
 	}
 
+	@Override
+	public Reservoir_Water_Evaporation isempty(Reservoir_Water_Evaporation reservoir_water_evaporation) {
+		return dao.isempty(reservoir_water_evaporation);
+	}
+	@Override
+	public void add_water_evaporation(Reservoir_Water_Evaporation reservoir_water_evaporation) {
+		dao.add_water_evaporation(reservoir_water_evaporation);
+	}
+
 }
