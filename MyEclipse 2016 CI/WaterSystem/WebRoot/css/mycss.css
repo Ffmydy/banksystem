@@ -25,6 +25,9 @@
 .menu-right .table #water_requirement td{
 	width: 130px;
 }
+.menu-right .table #water_evaporation td{
+	width: 130px;
+}
 .menu-right .updateitemdiv p{
 	margin-top: 1em;
 }

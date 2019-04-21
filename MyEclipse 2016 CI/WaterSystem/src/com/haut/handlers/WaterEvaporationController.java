@@ -79,5 +79,13 @@ public class WaterEvaporationController {
 			}
 		}
 	}
+	@RequestMapping("/check_somemonth_water_evaporation.do")
+	public ModelAndView docheck_somemonth_water_evaporation(int year,int month){
+		ModelAndView mv=new ModelAndView();
+		Reservoir_Water_Evaporation reservoir_water_evaporation=service.check_somemonth_water_evaporation(year,month);
+		mv.addObject("reservoir_water_evaporation", reservoir_water_evaporation);
+		mv.setViewName("forward:/show_somemonth_water_evaporation.jsp");
+		return mv;
+	}
 	
 }

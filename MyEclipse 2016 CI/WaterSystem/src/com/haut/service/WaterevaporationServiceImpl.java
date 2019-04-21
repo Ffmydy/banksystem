@@ -45,4 +45,10 @@ public class WaterevaporationServiceImpl implements IWaterevaporationService {
 		dao.add_water_evaporation(reservoir_water_evaporation);
 	}
 
+	@Override
+	public Reservoir_Water_Evaporation check_somemonth_water_evaporation(int year, int month) {
+		 return dao.check_somemonth_water_evaporation(year,month);
+		
+	}
+
 }

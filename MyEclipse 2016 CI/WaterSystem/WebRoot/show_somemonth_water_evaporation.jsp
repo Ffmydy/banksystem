@@ -11,8 +11,8 @@
 	<div class="menu-right">
 		<div class="l-tab-links"></div>
 		<div class="query">
-		<div class="accuratequery"><font size="4px" color="red">查询某月的具体蒸发量：</font>
-			<form action="check_somemonth_water_evaporation.do" method="post">
+		<div class="accuratequery"><font size="4px" color="red">查询某月的具体需水量：</font>
+			<form action="check_somemonth_water_requirement.do" method="post">
 				年份:<input type="text" name="year"/>月份:<select name="month">
 					<option>1</option>
 					<option>2</option>
@@ -32,7 +32,7 @@
 		</div>
 		<br/>
 		<br/>
-		<div class="vaguequery"><font size="4px" color="red">查询某年各月份的具体蒸发量：</font>
+		<div class="vaguequery"><font size="4px" color="red">查询某年各月份的具体需水量：</font>
 			<form action="">
 			年份:<input type="text" name="year"/>
 			<input type="submit" value="查询"/>
@@ -40,7 +40,7 @@
 		</div>
 		<br/>
 		<br/>
-		<div class="countrequirement_bymonth"><font size="4px" color="red">按月计算蒸发量</font>
+		<div class="countrequirement_bymonth"><font size="4px" color="red">按月计算需水量</font>
 			<form action="count_requirement_bymonth.do" method="get">
 			月份:<select name="month">
 					<option>1</option>
@@ -68,33 +68,20 @@
 			</form>
 		</div>
 		</div>
+		
 		<div class="table" id="table">
 			<table border="1px">
-				<tr class="head" id="water_requirement">
-					<td>需水记录序号</td>
+				<tr class="head" id="water_evaporation">
+					<td>蒸发量记录序号</td>
 					<td>年份</td>
 					<td>月份</td>
-					<td>月蒸发量</td>
+					<td>月水蒸发量</td>
 				</tr>
-				<c:forEach items="${PageInfo.list}" var="pi">
-					<tr>
-						<td>${pi.water_evaporation_id }</td>
-						<td>${pi.year}</td>
-						<td>${pi.month}</td>
-						<td>${pi.water_evaporation}</td>
-					</tr>
-				</c:forEach>
 				<tr>
-					<td colspan="4"><a
-						href="checkwater_evaporation.do?pageNumber=1&pageSize=12">首页</a>|
-						<a
-						href="checkwater_evaporation.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }"
-						<c:if test="${PageInfo.pageNumber<=1 }">  onclick="javascript:return false;"</c:if>>上一页</a>
-						<a
-						href="checkwater_evaporation.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
-						<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
-						第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
-						(共${PageInfo.count}条数据) <a href="add_water_evaporation.jsp">添加月蒸发量</a></td>
+					<td>${reservoir_water_evaporation.water_evaporation_id }</td>
+					<td>${reservoir_water_evaporation.year }</td>
+					<td>${reservoir_water_evaporation.month }</td>
+					<td>${reservoir_water_evaporation.water_evaporation}</td>
 				</tr>
 			</table>
 		</div>

@@ -10,5 +10,6 @@ public interface IWaterevaporationDao {
 	Long sel_waterevaporation_Count();
 	Reservoir_Water_Evaporation isempty(Reservoir_Water_Evaporation reservoir_water_evaporation);
 	void add_water_evaporation(Reservoir_Water_Evaporation reservoir_water_evaporation);
+	Reservoir_Water_Evaporation check_somemonth_water_evaporation(int year, int month);
 }
 
