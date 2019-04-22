@@ -16,6 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into reservoir_water_evaporation(year,month,water_evaporation) values(#{year},#{month},#{water_evaporation})
 	</insert>
 	<select id="check_somemonth_water_evaporation" resultType="Reservoir_Water_Evaporation">
-	select * from reservoir_water_evaporation where year=#{0} and month=#{1}
+	    select * from reservoir_water_evaporation where year=#{0} and month=#{1}
+	</select>
+	<select id="count_evaporation_bymonth" resultType="Count_Evaporation_Bymonth">
+		select * from count_month_evaporation where month=#{month}
+	</select>
+	<select id="count_evaporation_byyear" resultType="Count_Evaporation_Byyear">
+		select * from count_year_evaporation where year=#{year}
 	</select>
 </mapper>

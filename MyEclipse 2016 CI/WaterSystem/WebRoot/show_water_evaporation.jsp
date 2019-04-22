@@ -40,8 +40,8 @@
 		</div>
 		<br/>
 		<br/>
-		<div class="countrequirement_bymonth"><font size="4px" color="red">按月计算蒸发量</font>
-			<form action="count_requirement_bymonth.do" method="get">
+		<div class="countevaporation_bymonth"><font size="4px" color="red">按月计算蒸发量</font>
+			<form action="count_evaporation_bymonth.do" method="get">
 			月份:<select name="month">
 					<option>1</option>
 					<option>2</option>
@@ -61,8 +61,8 @@
 		</div>
 		<br/>
 		<br/>
-		<div class="countrequirement_byyear"><font size="4px" color="red">按年计算需水量</font>
-			<form action="count_requirement_byyear.do" method="get">
+		<div class="countevaporation_byyear"><font size="4px" color="red">按年计算蒸发量</font>
+			<form action="count_evaporation_byyear.do" method="get">
 			年份：<input type="text" name="year" />
 			<input type="submit" value="计算"/>
 			</form>
@@ -70,7 +70,7 @@
 		</div>
 		<div class="table" id="table">
 			<table border="1px">
-				<tr class="head" id="water_requirement">
+				<tr class="head" id="water_evaporation">
 					<td>需水记录序号</td>
 					<td>年份</td>
 					<td>月份</td>

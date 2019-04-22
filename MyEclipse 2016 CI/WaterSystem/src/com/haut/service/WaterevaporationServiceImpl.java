@@ -7,6 +7,9 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
+import com.haut.beans.Count_Evaporation_Bymonth;
+import com.haut.beans.Count_Evaporation_Byyear;
 import com.haut.beans.PageInfo;
 import com.haut.beans.Reservoir_Water_Evaporation;
 import com.haut.dao.IWaterevaporationDao;
@@ -49,6 +52,16 @@ public class WaterevaporationServiceImpl implements IWaterevaporationService {
 	public Reservoir_Water_Evaporation check_somemonth_water_evaporation(int year, int month) {
 		 return dao.check_somemonth_water_evaporation(year,month);
 		
+	}
+
+	@Override
+	public Count_Evaporation_Bymonth count_evaporation_bymonth(int month) {
+		return dao.count_evaporation_bymonth(month);
+	}
+
+	@Override
+	public Count_Evaporation_Byyear count_evaporation_byyear(int year) {
+		return dao.count_evaporation_byyear(year);
 	}
 
 }

@@ -14,6 +14,9 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.haut.beans.Count_Evaporation_Bymonth;
+import com.haut.beans.Count_Evaporation_Byyear;
 import com.haut.beans.PageInfo;
 import com.haut.beans.Reservoir_Water_Evaporation;
 import com.haut.service.IWaterevaporationService;
@@ -85,6 +88,22 @@ public class WaterEvaporationController {
 		Reservoir_Water_Evaporation reservoir_water_evaporation=service.check_somemonth_water_evaporation(year,month);
 		mv.addObject("reservoir_water_evaporation", reservoir_water_evaporation);
 		mv.setViewName("forward:/show_somemonth_water_evaporation.jsp");
+		return mv;
+	}
+	@RequestMapping("/count_evaporation_bymonth.do")
+	public ModelAndView docount_evaporation_bymonth(int month){
+		ModelAndView mv=new ModelAndView();
+		Count_Evaporation_Bymonth count_evaporation_bymonth=service.count_evaporation_bymonth(month);
+		mv.addObject("count_evaporation_bymonth", count_evaporation_bymonth);
+		mv.setViewName("/count_evaporation_bymonth.jsp");
+		return mv;
+	}
+	@RequestMapping("/count_evaporation_byyear.do")
+	public ModelAndView docount_evaporation_byyear(int year){
+		ModelAndView mv=new ModelAndView();
+		Count_Evaporation_Byyear count_evaporation_byyear=service.count_evaporation_byyear(year);
+		mv.addObject("count_evaporation_byyear", count_evaporation_byyear);
+		mv.setViewName("/count_evaporation_byyear.jsp");
 		return mv;
 	}
 	
