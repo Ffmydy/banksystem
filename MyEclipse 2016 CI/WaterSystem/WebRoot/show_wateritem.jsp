@@ -37,7 +37,7 @@
 						<td>${pi.item_concentration }</td>
 						<td>${pi.water_level }</td>
 						<td>${pi.detection_time }</td>
-						<td>${pi.unit_number }</td>
+						<td><a href="check_current_unit.do?unit_number=${pi.unit_number}">${pi.unit_number }</a></td>
 						<td><a href="verifyidentity_deleteitem.jsp?item_number=${pi.item_number}&item_name=${pi.item_name}">删除&nbsp&nbsp&nbsp&nbsp</a><a href="verifyidentity_modifyitem.jsp?item_number=${pi.item_number }&item_name=${pi.item_name}">修改</a>
 					</tr>
 				</c:forEach>

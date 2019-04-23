@@ -9,4 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selunitCount" resultType="Long">
 		select count(*) from entrusted_unit
 	</select>
+	<select id="check_current_unit" resultType="Entrusted_unit">
+		select * from entrusted_unit where unit_number=#{unit_number}
+	</select>
 </mapper>

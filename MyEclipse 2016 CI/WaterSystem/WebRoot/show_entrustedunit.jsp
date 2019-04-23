@@ -25,7 +25,7 @@
 						<td>${pi.unit_name }</td>
 						<td>${pi.unit_address}</td>
 						<td>${pi.unit_phonenumber }</td>
-						<td>${pi.boss_number}</td>
+						<td><a href="check_current_boss.do?boss_number=${pi.boss_number}">${pi.boss_number}</a></td>
 					</tr>
 				</c:forEach>
 				<tr>

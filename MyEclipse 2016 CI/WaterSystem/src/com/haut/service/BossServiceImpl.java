@@ -34,5 +34,9 @@ public class BossServiceImpl implements IBossService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public Boss check_current_boss(String boss_number) {
+		return dao.check_current_boss(boss_number);
+	}
 
 }

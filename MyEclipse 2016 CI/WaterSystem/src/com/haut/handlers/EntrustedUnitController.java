@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.haut.beans.Entrusted_unit;
 import com.haut.beans.PageInfo;
 import com.haut.service.IEntrustedunitService;
 
@@ -40,7 +41,13 @@ public class EntrustedUnitController {
 		mv.setViewName("forward:/show_entrustedunit.jsp");
 		return mv;
 	}
-	
-	
-
+	@RequestMapping("/check_current_unit.do")
+	public ModelAndView docheck_current_unit(HttpServletRequest request,HttpServletResponse response){
+		String unit_number=request.getParameter("unit_number");
+		ModelAndView mv=new ModelAndView();
+		Entrusted_unit entrusted_unit=service.check_current_unit(unit_number);
+		mv.addObject("entrusted_unit", entrusted_unit);
+		mv.setViewName("forward:/show_current_entrustedunit.jsp");
+		return mv;  
+	}
 }

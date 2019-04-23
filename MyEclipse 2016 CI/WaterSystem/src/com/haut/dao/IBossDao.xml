@@ -9,4 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selbossCount" resultType="Long">
 		select count(*) from boss
 	</select>
+	<select id="check_current_boss" resultType="Boss">
+		select * from boss where boss_number=#{boss_number}
+	</select>
 </mapper>

@@ -35,4 +35,8 @@ public class EntrustedunitServiceImpl implements IEntrustedunitService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public Entrusted_unit check_current_unit(String unit_number) {
+		return dao.check_current_unit(unit_number);
+	}
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.haut.beans.Boss;
 import com.haut.beans.PageInfo;
 import com.haut.service.IBossService;
 
@@ -37,6 +38,15 @@ public class BossController {
 		pi=service.showboss(pageSize, pageNumber);
 		mv.addObject("PageInfo", pi);
 		mv.setViewName("forward:/show_boss.jsp");
+		return mv;
+	}
+	@RequestMapping("/check_current_boss.do")
+	public ModelAndView docheck_current_boss(HttpServletRequest request,HttpServletResponse response){
+		String boss_number=request.getParameter("boss_number");
+		ModelAndView mv=new ModelAndView();
+		Boss boss=service.check_current_boss(boss_number);
+		mv.addObject("boss",boss);
+		mv.setViewName("forward:/show_current_boss.jsp");
 		return mv;
 	}
 	
