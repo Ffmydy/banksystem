@@ -23,6 +23,8 @@ import com.haut.common.RandomValidateCode;
 import com.haut.constant.Constants;
 import com.haut.service.IManageService;
 
+import net.sf.ehcache.pool.sizeof.SizeOf;
+
 @Controller
 public class ManageController {
 	@Autowired
@@ -117,6 +119,54 @@ public class ManageController {
 				mv.setViewName("/index.jsp");
 				return mv;
 			}
+		}
+	}
+	@RequestMapping("/checkpersonal_information.do")
+	public ModelAndView docheckpersonal_information(HttpSession session){
+		ModelAndView mv=new ModelAndView();
+		Manage manage=(Manage) session.getAttribute("manage");
+		mv.addObject("manage", manage);
+		System.out.println(manage);
+		mv.setViewName("/show_personal_information.jsp");
+		return mv;
+	}
+	@SuppressWarnings("null")
+	@RequestMapping("/alterpassword.do")
+	public ModelAndView doalterpassword(String oldpassword,String newpassword,String anewpassword,HttpSession session)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		Manage manage=(Manage) session.getAttribute("manage");
+		String manage_phonenumber=manage.getManage_phonenumber();
+		String oldpass=manage.getManage_password();
+		if(oldpassword==oldpass){
+			if(newpassword!=null&&!newpassword.equals("")){
+				if(newpassword==anewpassword){
+					if(newpassword.length()>=6&&newpassword.length()<=16){
+						service.alterpassword(manage_phonenumber,newpassword);
+						mv.setViewName("/show_personal_infomation.jsp");
+						return mv;
+					}
+					else {
+						mv.addObject("Error","新密码的长度是6~16个字符");
+						mv.setViewName("/alterpassword.jsp");
+						return mv;
+					}
+				}
+				else{
+					mv.addObject("Error", "两次输入的密码不一致，请重新输入");
+					mv.setViewName("/alterpassword.jsp");
+					return mv;
+				}
+			}
+			else{
+				mv.addObject("Error", "密码不能为空，请重新输入");
+				mv.setViewName("/alterpassword.jsp");
+				return mv;
+			}
+		}
+		else{
+			mv.addObject("Error", "旧密码不正确,请重新输入");
+			mv.setViewName("/alterpassword.jsp");
+			return mv;
 		}
 	}
 }

@@ -99,15 +99,17 @@
 						</div></li>
 
 					<li class="menu-list-01"><a href="#">
-							<p class="fumenu">客户管理</p> <img class="xiala"
+							<p class="fumenu">个人信息管理</p> <img class="xiala"
 							src="images/xiala.png" />
 					</a>
 						<div class="list-p">
-							<p class="zcd" id="zcd17">客户基本信息</p>
-							<p class="zcd" id="zcd18">客户VIP登记管理</p>
-							<p class="zcd" id="zcd19">客户信息管理</p>
-							<p class="zcd" id="zcd20">客户订单管理</p>
-							<p class="zcd" id="zcd21">转移客户</p>
+						<p class="zcd" id="zcd17">
+							<a href="checkpersonal_information.do">查看个人信息</a>
+						</p>
+						<p class="zcd" id="zcd18">
+							<a href="alterpassword.jsp">修改登录密码</a>
+						</p>
+							<p class="zcd" id="zcd19">手机号更换</p>
 						</div></li>
 					<li class="menu-list-02"><a href="#">
 							<p class="fumenu">员工管理</p> <img class="xiala"

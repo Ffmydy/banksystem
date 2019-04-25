@@ -9,5 +9,7 @@ public interface IManageService {
 
 	void manageRegister(Manage manage);
 
+	void alterpassword(String manage_phonenumber, String newpassword);
+
 	
 }

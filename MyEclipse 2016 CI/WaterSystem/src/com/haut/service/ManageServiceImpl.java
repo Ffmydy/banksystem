@@ -1,9 +1,6 @@
 package com.haut.service;
 
 import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.haut.beans.Manage;
@@ -33,5 +30,10 @@ public class ManageServiceImpl implements IManageService {
 		//Md5加密
 		manage.setManage_password(MD5Util.MD5EncodeUtf8(manage.getManage_password()));
 		dao.manageRegister(manage);
+	}
+	@Override
+	public void alterpassword(String manage_phonenumber, String newpassword) {
+		dao.alterpassword(manage_phonenumber,newpassword);
+		
 	}
 }
