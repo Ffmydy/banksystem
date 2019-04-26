@@ -13,7 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into manage(manage_phonenumber,manage_password,manage_name,manage_sex,manage_age)
 		values(#{manage_phonenumber},#{manage_password},#{manage_name},#{manage_sex},#{manage_age})
 	</insert>
-	<update id=" alterpassword">
+	<update id="alterpassword">
 		update manage set manage_password=#{1} where manage_phonenumber=#{0}
+	</update>
+	<update id="alterphonenumber">
+		update manage set manage_phonenumber=#{1} where manage_phonenumber=#{0}
 	</update>
 </mapper>

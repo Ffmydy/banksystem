@@ -1,6 +1,8 @@
 package com.haut.handlers;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,8 @@ public class PhoneCodeController {
 	}
 	@RequestMapping(value="/sendSMS.do",method=RequestMethod.POST)
 	@ResponseBody
-	public Object sendSMS( String manage_phonenumber) throws ClientException{
+	public Object sendSMS(String manage_phonenumber) throws ClientException{
+		System.out.println(manage_phonenumber);
 		Manage manage=service.checkphonenumber(manage_phonenumber);
 		if(manage==null){
 			RandomCode.setNewcode();
@@ -51,7 +54,6 @@ public class PhoneCodeController {
 	@RequestMapping(value="/verifyIdentity.do",method=RequestMethod.POST)
 	@ResponseBody
 	public Object verifyIdentity(String manage_phonenumber) throws ClientException{
-		System.out.println(manage_phonenumber);
 		Manage manage=service.checkphonenumber(manage_phonenumber);
 		if(manage==null){
 			return "error_not_register";

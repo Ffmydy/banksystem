@@ -109,7 +109,9 @@
 						<p class="zcd" id="zcd18">
 							<a href="alterpassword.jsp">修改登录密码</a>
 						</p>
-							<p class="zcd" id="zcd19">手机号更换</p>
+						<p class="zcd" id="zcd19">
+							<a href="alterphonenumber.jsp">更换手机号</a>
+						</p>
 						</div></li>
 					<li class="menu-list-02"><a href="#">
 							<p class="fumenu">员工管理</p> <img class="xiala"

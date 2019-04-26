@@ -33,7 +33,13 @@ public class ManageServiceImpl implements IManageService {
 	}
 	@Override
 	public void alterpassword(String manage_phonenumber, String newpassword) {
-		dao.alterpassword(manage_phonenumber,newpassword);
+		//修改后的新密码，md5加密
+		String newpasswordmd5=MD5Util.MD5EncodeUtf8(newpassword);
+		dao.alterpassword(manage_phonenumber,newpasswordmd5);
 		
+	}
+	@Override
+	public void alterphonenumber(String oldphonenumber, String newphonenumber) {
+		dao.alterphonenumber(oldphonenumber,newphonenumber);
 	}
 }

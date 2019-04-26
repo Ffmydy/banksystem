@@ -11,5 +11,7 @@ public interface IManageService {
 
 	void alterpassword(String manage_phonenumber, String newpassword);
 
+	void alterphonenumber(String oldphonenumber, String newphonenumber);
+
 	
 }

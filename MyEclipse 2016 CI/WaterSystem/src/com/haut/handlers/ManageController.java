@@ -22,8 +22,7 @@ import com.haut.beans.Manage;
 import com.haut.common.RandomValidateCode;
 import com.haut.constant.Constants;
 import com.haut.service.IManageService;
-
-import net.sf.ehcache.pool.sizeof.SizeOf;
+import com.haut.util.MD5Util;
 
 @Controller
 public class ManageController {
@@ -130,19 +129,21 @@ public class ManageController {
 		mv.setViewName("/show_personal_information.jsp");
 		return mv;
 	}
-	@SuppressWarnings("null")
 	@RequestMapping("/alterpassword.do")
 	public ModelAndView doalterpassword(String oldpassword,String newpassword,String anewpassword,HttpSession session)throws Exception{
 		ModelAndView mv=new ModelAndView();
 		Manage manage=(Manage) session.getAttribute("manage");
 		String manage_phonenumber=manage.getManage_phonenumber();
 		String oldpass=manage.getManage_password();
-		if(oldpassword==oldpass){
+		//输入的旧密码进行md5加密，然后与数据的密码比较
+		String oldpasswordmd5=MD5Util.MD5EncodeUtf8(oldpassword);
+		if(oldpasswordmd5.equals(oldpass)){
 			if(newpassword!=null&&!newpassword.equals("")){
-				if(newpassword==anewpassword){
+				if(newpassword.equals(anewpassword)){
 					if(newpassword.length()>=6&&newpassword.length()<=16){
 						service.alterpassword(manage_phonenumber,newpassword);
-						mv.setViewName("/show_personal_infomation.jsp");
+						mv.addObject("alterpassSuccess", "密码修改成功,请使用新密码重新登录");
+						mv.setViewName("/index.jsp");
 						return mv;
 					}
 					else {
@@ -168,5 +169,16 @@ public class ManageController {
 			mv.setViewName("/alterpassword.jsp");
 			return mv;
 		}
+	}
+	@RequestMapping("/alterphonenumber.do")
+	public ModelAndView doalterphonenumber(HttpServletRequest request,HttpSession session){
+		ModelAndView mv=new ModelAndView();
+		Manage manage=(Manage) session.getAttribute("manage");
+		String oldphonenumber=manage.getManage_phonenumber();
+		String newphonenumber=request.getParameter("manage_phonenumber");
+		service.alterphonenumber(oldphonenumber,newphonenumber);
+		mv.addObject("alterphonenumberSuccess", "手机号更换成功,请使用新手机号重新登录!");
+		mv.setViewName("/index.jsp");
+		return mv;
 	}
 }
