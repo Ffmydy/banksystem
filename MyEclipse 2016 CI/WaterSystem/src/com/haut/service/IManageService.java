@@ -13,5 +13,7 @@ public interface IManageService {
 
 	void alterphonenumber(String oldphonenumber, String newphonenumber);
 
+	void logout(String manage_phonenumber);
+
 	
 }

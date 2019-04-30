@@ -114,14 +114,16 @@
 						</p>
 						</div></li>
 					<li class="menu-list-02"><a href="#">
-							<p class="fumenu">员工管理</p> <img class="xiala"
+							<p class="fumenu">账号管理</p> <img class="xiala"
 							src="images/xiala.png" />
 					</a>
 						<div class="list-p">
-							<p class="zcd" id="zcd22">员工基本信息</p>
-							<p class="zcd" id="zcd23">员工权限</p>
-							<p class="zcd" id="zcd24">开通新客户</p>
-							<p class="zcd" id="zcd25">销售额管理</p>
+						<p class="zcd" id="zcd22">
+							<a href="logout.do" onclick="javascript:return confirm('确认注销此账户？');">注销</a>
+						</p>
+						<p class="zcd" id="zcd23">
+							<a href="secede.do" onclick="javascript:return confirm('确认退出系统？');">退出系统</a>
+						</p>
 						</div></li>
 				</ul>
 			</div>

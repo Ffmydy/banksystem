@@ -1,5 +1,8 @@
 package com.haut.handlers;
 
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,7 +18,11 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.haut.beans.Manage;
@@ -102,7 +109,7 @@ public class ManageController {
 		}
 		else if(!request.getParameter("manage_apassword").equals(manage.getManage_password())){
 			mv.addObject("error", "两次密码不一致，确认后重新输入");
-			mv.setViewName("/register.jsp");
+			mv.setViewName("forward:/nextRegister.jsp");
 			return mv;
 		}
 		else{
@@ -181,4 +188,32 @@ public class ManageController {
 		mv.setViewName("/index.jsp");
 		return mv;
 	}
+	@RequestMapping("/logout.do")
+	public String dologout(HttpSession session){
+		Manage manage=(Manage) session.getAttribute("manage");
+		String manage_phonenumber=manage.getManage_phonenumber();
+		service.logout(manage_phonenumber);
+		return "index.jsp";
+	}
+	@RequestMapping("/secede.do")
+	public String dosecede(HttpSession session){
+		session.invalidate();
+		return "index.jsp";
+	}
+	 @RequestMapping(value = "/fileUploadPage.do", method = RequestMethod.POST)
+	    @ResponseBody
+	    public String upload(HttpServletRequest req) throws Exception{
+	        MultipartHttpServletRequest mreq = (MultipartHttpServletRequest)req;
+	        MultipartFile file = mreq.getFile("file");
+	        String fileName = file.getOriginalFilename();
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+	        String name=req.getSession().getServletContext().getRealPath("/")+
+	                "photo\\"+sdf.format(new Date())+fileName.substring(fileName.lastIndexOf('.'));
+	        System.out.println(name);
+	        FileOutputStream fos = new FileOutputStream(name);
+	        fos.write(file.getBytes());
+	        fos.flush();
+	        fos.close();
+	        return name;
+	    }
 }

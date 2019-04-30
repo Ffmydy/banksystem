@@ -42,4 +42,8 @@ public class ManageServiceImpl implements IManageService {
 	public void alterphonenumber(String oldphonenumber, String newphonenumber) {
 		dao.alterphonenumber(oldphonenumber,newphonenumber);
 	}
+	@Override
+	public void logout(String manage_phonenumber) {
+		dao.logout(manage_phonenumber);	
+	}
 }
