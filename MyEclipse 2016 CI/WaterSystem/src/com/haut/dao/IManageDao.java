@@ -9,5 +9,6 @@ public interface IManageDao {
 	void alterpassword(String manage_phonenumber, String newpassword);//修改个人登录密码
 	void alterphonenumber(String oldphonenumber, String newphonenumber);//更换手机号
 	void logout(String manage_phonenumber);//注销账号
+	void uploadphoto(String manage_phonenumber, String manage_photo);//上传头像
 }
 

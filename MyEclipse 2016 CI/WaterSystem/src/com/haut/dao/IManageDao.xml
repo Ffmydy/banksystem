@@ -22,4 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="logout">
 		delete from manage where manage_phonenumber=#{manage_phonenumber}
 	</delete>
+	<update id="uploadphoto">
+		update manage set manage_photo=#{1} where manage_phonenumber=#{0}
+	</update>
 </mapper>

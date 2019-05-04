@@ -1,5 +1,6 @@
 package com.haut.handlers;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -201,19 +202,32 @@ public class ManageController {
 		return "index.jsp";
 	}
 	 @RequestMapping(value = "/fileUploadPage.do", method = RequestMethod.POST)
-	    @ResponseBody
-	    public String upload(HttpServletRequest req) throws Exception{
-	        MultipartHttpServletRequest mreq = (MultipartHttpServletRequest)req;
-	        MultipartFile file = mreq.getFile("file");
-	        String fileName = file.getOriginalFilename();
-	        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-	        String name=req.getSession().getServletContext().getRealPath("/")+
-	                "photo\\"+sdf.format(new Date())+fileName.substring(fileName.lastIndexOf('.'));
-	        System.out.println(name);
-	        FileOutputStream fos = new FileOutputStream(name);
-	        fos.write(file.getBytes());
-	        fos.flush();
-	        fos.close();
-	        return name;
-	    }
+	  public ModelAndView dofileUploadPage(MultipartFile photo,HttpSession session) throws Exception{
+		 ModelAndView mv=new ModelAndView();
+		 if(!photo.isEmpty()){
+			 String path="C:/Users/Admin/Workspaces/MyEclipse 2016 CI/WaterSystem/WebRoot/photo";
+			 System.out.println(path);
+			 String fileName=photo.getOriginalFilename();
+			 System.out.println(fileName);
+			 if(fileName.endsWith(".jpg")||fileName.endsWith(".png")){
+				 File file=new File(path,fileName);
+				 photo.transferTo(file);
+				 Manage manage=(Manage) session.getAttribute("manage");
+				 String manage_phonenumber=manage.getManage_phonenumber();
+				 String manage_photo="photo/"+fileName;
+				 System.out.println(manage_photo);
+				 service.uploadphoto(manage_phonenumber,manage_photo);
+				 manage.setManage_photo(manage_photo);
+				 mv.addObject("Success", "照片上传成功!");
+			 }
+			 else{
+				 mv.addObject("Error", "照片格式不正确!");
+			 }
+		 }
+		 else{
+			 mv.addObject("Error", "文件不能为空!");
+		 }
+		 mv.setViewName("/checkpersonal_information.do");
+		 return mv;
+	 }
 }

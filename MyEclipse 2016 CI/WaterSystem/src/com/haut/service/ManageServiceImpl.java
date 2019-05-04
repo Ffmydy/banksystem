@@ -46,4 +46,8 @@ public class ManageServiceImpl implements IManageService {
 	public void logout(String manage_phonenumber) {
 		dao.logout(manage_phonenumber);	
 	}
+	@Override
+	public void uploadphoto(String manage_phonenumber, String manage_photo) {
+		dao.uploadphoto(manage_phonenumber,manage_photo);
+	}
 }

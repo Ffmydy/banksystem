@@ -15,5 +15,7 @@ public interface IManageService {
 
 	void logout(String manage_phonenumber);
 
+	void uploadphoto(String manage_phonenumber, String manage_photo);
+
 	
 }
