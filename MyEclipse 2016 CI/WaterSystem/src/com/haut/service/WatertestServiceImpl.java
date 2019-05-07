@@ -27,7 +27,7 @@ public class WatertestServiceImpl implements IWatertestService {
 		map.put("pageStart",pageSize*(pageNumber-1));
 		map.put("pageSize", pageSize);
 		List<Water_Test_Report> list = dao.showitem(map);
-		System.out.println(list);
+		//System.out.println(list);
 		Long total=dao.selitemCount();
 		pi.setCount(total);
 		pi.setList(list);
@@ -64,8 +64,27 @@ public class WatertestServiceImpl implements IWatertestService {
 		map.put("pageStart",pageSize*(pageNumber-1));
 		map.put("pageSize", pageSize);
 		List<Water_Test_Report> list = dao.show_unqualified_item(map);
-		System.out.println(list);
+		//System.out.println(list);
 		Long total=dao.selunqualifieditemCount();
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
+	@Override
+	public PageInfo querybydetection_time(int pageSize, int pageNumber, String detection_time) {
+		//System.out.println(detection_time);
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("detection_time", detection_time);
+		List<Water_Test_Report> list = dao.querybydetection_time(map);
+		//System.out.println(list);
+		Long total=dao.querybydetection_timeCount(detection_time);
+		//System.out.println(total);
 		pi.setCount(total);
 		pi.setList(list);
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);

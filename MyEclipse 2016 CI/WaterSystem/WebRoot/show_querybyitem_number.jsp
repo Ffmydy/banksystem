@@ -18,6 +18,15 @@
 				<input type="submit" value="查询"/>
 			</form>
 		</div>
+		<p><br/></p>
+		<p><br/></p>
+		<div class="querybydetecction_time">
+			<font size="4px" color="red">根据检测时间查询：</font>
+			<form action="querybydetection_time.do" method="get">
+				<input type="date" name="detecction_time"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
 	</div>
 		<div class="table">
 			<table border="1px" >

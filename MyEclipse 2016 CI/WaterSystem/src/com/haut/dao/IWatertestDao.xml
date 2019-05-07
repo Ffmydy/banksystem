@@ -33,4 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="show_unqualified_item" resultType="Water_Test_Report" parameterType="map">
 		select * from water_test_report where water_level=4 or water_level=5 limit #{pageStart},#{pageSize} 
 	</select>
+	<select id="querybydetection_timeCount" resultType="Long">
+		select count(*) from water_test_report where detection_time=#{detection_time}
+	</select>
+	<select id="querybydetection_time" resultType="Water_Test_Report" parameterType="map">
+	    select * from water_test_report where detection_time=#{detection_time} limit #{pageStart},#{pageSize}
+	</select>
 </mapper>

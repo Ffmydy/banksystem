@@ -193,11 +193,35 @@ public class WaterTestController {
 		}
 	}
 	@RequestMapping("/querybyitem_number.do")
-	public ModelAndView querybyitem_number(String item_number){
+	public ModelAndView doquerybyitem_number(String item_number){
 		ModelAndView mv=new ModelAndView();
 		Water_Test_Report water_test_report=service.check_itemnumber(item_number);
 			mv.setViewName("/show_querybyitem_number.jsp");
 			mv.addObject("water_test_report", water_test_report);
 			return mv;
+	}
+	@RequestMapping("/querybydetection_time.do")
+	public ModelAndView doquerybydetection_time(String detection_time,HttpServletRequest request,HttpServletResponse response){
+		//System.out.println(detection_time);
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		if(detection_time==null){
+			detection_time=request.getParameter("detection_time");
+		}
+		pi=service.querybydetection_time(pageSize, pageNumber,detection_time);
+		mv.addObject("PageInfo", pi);
+		mv.addObject("detection_time",detection_time);
+		mv.setViewName("forward:/show_querybydetection_time.jsp");
+		return mv;
 	}
 }

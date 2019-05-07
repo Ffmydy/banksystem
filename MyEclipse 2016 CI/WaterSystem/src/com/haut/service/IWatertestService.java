@@ -12,4 +12,5 @@ public interface IWatertestService {
 	void additem(Water_Test_Report water_test_report, Water_Test_Operation water_test_operation);
 	Water_Test_Report check_itemnumber(String item_number);
 	PageInfo show_unqualified_item(int pageSize, int pageNumber);
+	PageInfo querybydetection_time(int pageSize, int pageNumber, String detection_time);
 }
