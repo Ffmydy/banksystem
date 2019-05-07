@@ -224,4 +224,27 @@ public class WaterTestController {
 		mv.setViewName("forward:/show_querybydetection_time.jsp");
 		return mv;
 	}
+	@RequestMapping("/querybyunit_number.do")
+	public ModelAndView doquerybyunit_number(String unit_number,HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		if(unit_number==null){
+			unit_number=request.getParameter("unit_number");
+		}
+		pi=service.querybyunit_number(pageSize, pageNumber,unit_number);
+		mv.addObject("PageInfo", pi);
+		mv.addObject("unit_number",unit_number);
+		mv.setViewName("forward:/show_querybyunit_number.jsp");
+		return mv;
+	}
 }

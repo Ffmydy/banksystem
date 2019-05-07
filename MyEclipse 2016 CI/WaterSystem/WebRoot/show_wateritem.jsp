@@ -27,6 +27,15 @@
 				<input type="submit" value="查询"/>
 			</form>
 		</div>
+		<p><br/></p>
+		<p><br/></p>
+		<div class="querybyunit_number">
+			<font size="4px" color="red">根据单位编号查询：</font>
+			<form action="querybyunit_number.do" method="get">
+				<input type="text" name="unit_number"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
 	</div>
 		<div class="table">
 			<table border="1px" >

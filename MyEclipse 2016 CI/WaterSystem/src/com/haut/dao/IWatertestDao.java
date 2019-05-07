@@ -18,4 +18,6 @@ public interface IWatertestDao {
 	Long selunqualifieditemCount();
 	List<Water_Test_Report> querybydetection_time(Map<String, Object> map);//根据水检时间查询水检项目
 	Long querybydetection_timeCount(String detection_time);
+	List<Water_Test_Report> querybyunit_number(Map<String, Object> map);//根据水检单位编号查询水检项目
+	Long querybyunit_numberCount(String unit_number);
 }

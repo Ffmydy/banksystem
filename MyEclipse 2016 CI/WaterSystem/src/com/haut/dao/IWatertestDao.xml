@@ -39,4 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="querybydetection_time" resultType="Water_Test_Report" parameterType="map">
 	    select * from water_test_report where detection_time=#{detection_time} limit #{pageStart},#{pageSize}
 	</select>
+	<select id="querybyunit_numberCount" resultType="Long">
+		select count(*) from water_test_report where unit_number=#{unit_number}
+	</select>
+	<select id="querybyunit_number" resultType="Water_Test_Report" parameterType="map">
+		 select * from water_test_report where unit_number=#{unit_number} limit #{pageStart},#{pageSize}
+	</select>
 </mapper>

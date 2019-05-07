@@ -90,4 +90,20 @@ public class WatertestServiceImpl implements IWatertestService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public PageInfo querybyunit_number(int pageSize, int pageNumber, String unit_number) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("unit_number", unit_number);
+		List<Water_Test_Report> list = dao.querybyunit_number(map);	
+		Long total=dao.querybyunit_numberCount(unit_number);
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
 }
