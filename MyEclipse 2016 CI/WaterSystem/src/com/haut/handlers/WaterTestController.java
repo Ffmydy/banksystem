@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -245,6 +246,29 @@ public class WaterTestController {
 		mv.addObject("PageInfo", pi);
 		mv.addObject("unit_number",unit_number);
 		mv.setViewName("forward:/show_querybyunit_number.jsp");
+		return mv;
+	}
+	@RequestMapping("/querybywater_level.do")
+	public ModelAndView doquerybywater_level(Integer water_level,HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		if(water_level==null){
+			water_level=Integer.parseInt(request.getParameter("water_level"));
+		}
+		pi=service.querybywater_level(pageSize, pageNumber,water_level);
+		mv.addObject("PageInfo", pi);
+		mv.addObject("water_level",water_level);
+		mv.setViewName("forward:/show_querybywater_level.jsp");
 		return mv;
 	}
 }

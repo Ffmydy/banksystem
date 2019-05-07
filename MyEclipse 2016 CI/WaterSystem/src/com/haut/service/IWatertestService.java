@@ -14,4 +14,5 @@ public interface IWatertestService {
 	PageInfo show_unqualified_item(int pageSize, int pageNumber);
 	PageInfo querybydetection_time(int pageSize, int pageNumber, String detection_time);
 	PageInfo querybyunit_number(int pageSize, int pageNumber, String unit_number);
+	PageInfo querybywater_level(int pageSize, int pageNumber, Integer water_level);
 }

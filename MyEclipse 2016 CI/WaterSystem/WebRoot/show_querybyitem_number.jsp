@@ -36,6 +36,21 @@
 				<input type="submit" value="查询"/>
 			</form>
 		</div>
+		<p><br/></p>
+		<p><br/></p>
+		<div class="querybywater_level">
+			<font size="4px" color="red">根据成分等级查询：</font>
+			<form action="querybywater_level.do" method="get">
+				<select name="water_level" style="width: 135px">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
 	</div>
 		<div class="table">
 			<table border="1px" >

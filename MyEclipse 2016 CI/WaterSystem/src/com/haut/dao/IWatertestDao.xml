@@ -45,4 +45,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="querybyunit_number" resultType="Water_Test_Report" parameterType="map">
 		 select * from water_test_report where unit_number=#{unit_number} limit #{pageStart},#{pageSize}
 	</select>
+	<select id="querybywater_levelCount" resultType="Long">
+		select count(*) from water_test_report where water_level=#{water_level}
+	</select>
+	<select id="querybywater_level" resultType="Water_Test_Report" parameterType="map">
+		select * from water_test_report where water_level=#{water_level} limit #{pageStart},#{pageSize}
+	</select>
 </mapper>

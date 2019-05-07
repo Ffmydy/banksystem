@@ -106,4 +106,20 @@ public class WatertestServiceImpl implements IWatertestService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public PageInfo querybywater_level(int pageSize, int pageNumber, Integer water_level) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("water_level", water_level);
+		List<Water_Test_Report> list = dao.querybywater_level(map);	
+		Long total=dao.querybywater_levelCount(water_level);
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
 }
