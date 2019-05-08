@@ -9,9 +9,46 @@
 <body>
 	<jsp:include page="model.jsp" />
 	<div class="menu-right">
-	<div class="l-tab-links"></div>
+		<div class="l-tab-links"></div>
+		<div class="query">
+			<div class="queryoperationbyoperation_managename">
+				<font size="4px" color="red">根据管理员姓名查询：</font>
+				<form action="queryoperationbyoperation_managename.do">
+					<input type="text" name="operation_managename" /> <input
+						type="submit" value="查询" />
+				</form>
+			</div>
+			<p>
+				<br />
+			</p>
+			<p>
+				<br />
+			</p>
+			<div class="queryoperationbyoperation_time">
+				<font size="4px" color="red">根据操作时间查询：</font>
+				<form action="queryoperationbyoperation_time.do">
+					<input type="date" name="operation_time" /> <input type="submit"
+						value="查询" />
+				</form>
+			</div>
+			<p>
+				<br />
+			</p>
+			<p>
+				<br />
+			</p>
+			<div class="queryoperationbyoperation_name">
+				<font size="4px" color="red">根据操作名称查询：</font> <select
+					name="operation_name" style="width: 135px">
+					<option>添加</option>
+					<option>删除</option>
+					<option>修改</option>
+				</select>
+				<input type="submit" value="查询"/>
+			</div>
+		</div>
 		<div class="table">
-			<table border="1px" >
+			<table border="1px">
 				<tr class="head">
 					<td>操作序号</td>
 					<td>管理员姓名</td>
@@ -31,16 +68,16 @@
 					</tr>
 				</c:forEach>
 				<tr>
-						<td colspan="6"><a
-							href="checkoperation.do?pageNumber=1&pageSize=6">首页</a>| <a
-							href="checkoperation.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }"
-							<c:if test="${PageInfo.pageNumber<=1 }">  onclick="javascript:return false;"</c:if>>上一页</a>
-							<a
-							href="checkoperation.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
-							<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
-							第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
-							(共${PageInfo.count}条数据）</td>
-					</tr>
+					<td colspan="6"><a
+						href="checkoperation.do?pageNumber=1&pageSize=6">首页</a>| <a
+						href="checkoperation.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }"
+						<c:if test="${PageInfo.pageNumber<=1 }">  onclick="javascript:return false;"</c:if>>上一页</a>
+						<a
+						href="checkoperation.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
+						<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
+						第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
+						(共${PageInfo.count}条数据）</td>
+				</tr>
 			</table>
 		</div>
 	</div>

@@ -22,4 +22,9 @@ public interface IWatertestDao {
 	Long querybyunit_numberCount(String unit_number);
 	List<Water_Test_Report> querybywater_level(Map<String, Object> map);//根据水质等级查询水检项目
 	Long querybywater_levelCount(Integer water_level);
+	Water_Test_Report queryunqualifiedbyitem_number(String item_number);//根据项目编号查询不合格的水检项目
+	List<Water_Test_Report> queryunqualifiedbydetection_time(Map<String, Object> map);//根据水检时间查询不合格的水检项目
+	Long queryunqualifiedbydetection_timeCount(String detection_time);
+	List<Water_Test_Report> queryunqualifiedbyunit_number(Map<String, Object> map);//根据单位编号查询不合格的水检项目
+	Long queryunqualifiedbyunit_numberCount(String unit_number);
 }

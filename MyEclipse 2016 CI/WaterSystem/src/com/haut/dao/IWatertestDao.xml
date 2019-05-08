@@ -51,4 +51,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="querybywater_level" resultType="Water_Test_Report" parameterType="map">
 		select * from water_test_report where water_level=#{water_level} limit #{pageStart},#{pageSize}
 	</select>
+	<select id="queryunqualifiedbyitem_number" resultType="Water_Test_Report">
+		select * from water_test_report where item_number=#{item_number} and (water_level=4 or water_level=5)
+	</select>
+	<select id="queryunqualifiedbydetection_time" resultType="Water_Test_Report" parameterType="map">
+		 select * from water_test_report where detection_time=#{detection_time} and (water_level=4 or water_level=5) limit #{pageStart},#{pageSize}
+	</select>
+	<select id="queryunqualifiedbydetection_timeCount" resultType="Long">
+		select count(*) from water_test_report where detection_time=#{detection_time} and (water_level=4 or water_level=5)
+	</select>
+	<select id="queryunqualifiedbyunit_number" resultType="Water_Test_Report" parameterType="map">
+		 select * from water_test_report where unit_number=#{unit_number} and (water_level=4 or water_level=5) limit #{pageStart},#{pageSize}
+	</select>
+	<select id="queryunqualifiedbyunit_numberCount" resultType="Long">
+		select count(*) from water_test_report where unit_number=#{unit_number} and (water_level=4 or water_level=5)
+	</select>
 </mapper>

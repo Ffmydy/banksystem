@@ -38,4 +38,27 @@ public class ManageOperationController {
 		mv.setViewName("forward:/show_manageoperation.jsp");
 		return mv;
 	}
+	@RequestMapping("/queryoperationbyoperation_managename.do")
+	public ModelAndView doqueryoperationbyoperation_managename(String operation_managename,HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		if(operation_managename==null){
+			operation_managename=request.getParameter("operation_managename");
+		}
+		pi=service.queryoperationbyoperation_managename(pageSize, pageNumber,operation_managename);
+		mv.addObject("PageInfo", pi);
+		mv.addObject("operation_managename", operation_managename);
+		mv.setViewName("forward:/queryoperationbyoperation_managename.jsp");
+		return mv;
+	}
 }

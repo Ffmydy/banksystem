@@ -7,9 +7,41 @@
 <link type="text/css" rel="stylesheet" href="css/mycss.css" />
 </head>
 <body>
+<c:if test="${not empty UnqualifieditemEmpty }">
+	<script type="text/javascript">
+	alert('${UnqualifieditemEmpty}')
+	</script>
+</c:if>
 	<jsp:include page="model.jsp" />
 	<div class="menu-right">
 	<div class="l-tab-links"></div>
+	<div class="query">
+		<div class="queryunqualifiedbyitem_number">
+		    <font size="4px" color="red">根据项目编号查询：</font>
+			<form action="queryunqualifiedbyitem_number.do">
+				<input type="text" name="item_number"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
+		<p><br/></p>
+		<p><br/></p>
+		<div class="queryunqualifiedbydetection_time">
+			<font size="4px" color="red">根据水检时间查询：</font>
+			<form action="queryunqualifiedbydetection_time.do">
+				<input type="date" name="detection_time"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
+		<p><br/></p>
+		<p><br/></p>
+		<div class="queryunqualifiedbyunit_number">
+			<font size="4px" color="red">根据单位编号查询：</font>
+			<form action="queryunqualifiedbyunit_number.do">
+				<input type="text" name="unit_number"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</div>
+	</div>
 		<div class="table">
 			<table border="1px" >
 				<tr class="head">

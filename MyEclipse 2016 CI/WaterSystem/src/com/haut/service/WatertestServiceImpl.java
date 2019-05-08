@@ -122,4 +122,43 @@ public class WatertestServiceImpl implements IWatertestService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public Water_Test_Report queryunqualifiedbyitem_number(String item_number) {
+		Water_Test_Report water_Test_Report =dao.queryunqualifiedbyitem_number(item_number);
+		return water_Test_Report;
+	}
+	@Override
+	public PageInfo queryunqualifiedbydetection_time(int pageSize, int pageNumber, String detection_time) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("detection_time", detection_time);
+		List<Water_Test_Report> list = dao.queryunqualifiedbydetection_time(map);
+		//System.out.println(list);
+		Long total=dao.queryunqualifiedbydetection_timeCount(detection_time);
+		//System.out.println(total);
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
+	@Override
+	public PageInfo queryunqualifiedbyunit_number(int pageSize, int pageNumber, String unit_number) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("unit_number", unit_number);
+		List<Water_Test_Report> list = dao.queryunqualifiedbyunit_number(map);	
+		Long total=dao.queryunqualifiedbyunit_numberCount(unit_number);
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
 }

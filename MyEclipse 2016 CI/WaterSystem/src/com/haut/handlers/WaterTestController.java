@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -269,6 +268,65 @@ public class WaterTestController {
 		mv.addObject("PageInfo", pi);
 		mv.addObject("water_level",water_level);
 		mv.setViewName("forward:/show_querybywater_level.jsp");
+		return mv;
+	}
+	@RequestMapping("/queryunqualifiedbyitem_number.do")
+	public ModelAndView doqueryunqualifiedbyitem_number(String item_number){
+		ModelAndView mv=new ModelAndView();
+		Water_Test_Report water_test_report=service.queryunqualifiedbyitem_number(item_number);
+		if(water_test_report==null){
+			mv.addObject("UnqualifieditemEmpty", "该项目不存在或者该项目是合格水检项目，请查证后再查询!");
+			mv.setViewName("/checkunqualified_program.do");
+		}else{
+			mv.setViewName("/show_queryunqualifiedbyitem_number.jsp");
+			mv.addObject("water_test_report", water_test_report);
+		}
+		return mv;
+	}
+	@RequestMapping("/queryunqualifiedbydetection_time.do")
+	public ModelAndView doqueryunqualifiedbydetection_time(String detection_time,HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		if(detection_time==null){
+			detection_time=request.getParameter("detection_time");
+		}
+		pi=service.queryunqualifiedbydetection_time(pageSize, pageNumber,detection_time);
+		mv.addObject("PageInfo", pi);
+		mv.addObject("detection_time",detection_time);
+		mv.setViewName("forward:/show_queryunqualifiedbydetection_time.jsp");
+		return mv;
+	}
+	@RequestMapping("/queryunqualifiedbyunit_number.do")
+	public ModelAndView doqueryunqualifiedbyunit_number(String unit_number,HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mv=new ModelAndView();
+		PageInfo pi=new PageInfo();
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageSize=6;
+		if(pageSizeStr!=null&&!pageSizeStr.equals("")){
+			pageSize=Integer.parseInt(pageSizeStr);
+		}
+		String pageNumberStr=request.getParameter("pageNumber");
+		int pageNumber=1;
+		if(pageNumberStr!=null&&!pageNumberStr.equals("")){
+			pageNumber=Integer.parseInt(pageNumberStr); 
+		}
+		if(unit_number==null){
+			unit_number=request.getParameter("unit_number");
+		}
+		pi=service.queryunqualifiedbyunit_number(pageSize, pageNumber,unit_number);
+		mv.addObject("PageInfo", pi);
+		mv.addObject("unit_number",unit_number);
+		mv.setViewName("forward:/show_queryunqualifiedbyunit_number.jsp");
 		return mv;
 	}
 }
