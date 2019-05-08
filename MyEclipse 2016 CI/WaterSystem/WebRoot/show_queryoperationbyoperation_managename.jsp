@@ -38,13 +38,16 @@
 				<br />
 			</p>
 			<div class="queryoperationbyoperation_name">
-				<font size="4px" color="red">根据操作名称查询：</font> <select
+				<font size="4px" color="red">根据操作名称查询：</font>
+				<form action="queryoperationbyoperation_name.do">
+				<select
 					name="operation_name" style="width: 135px">
 					<option>添加</option>
 					<option>删除</option>
 					<option>修改</option>
 				</select>
 				<input type="submit" value="查询"/>
+				</form>
 			</div>
 		</div>
 		<div class="table">

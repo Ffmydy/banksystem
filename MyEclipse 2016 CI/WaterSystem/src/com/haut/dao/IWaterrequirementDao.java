@@ -15,5 +15,5 @@ public interface IWaterrequirementDao {
 	void add_water_requirement(Irrigation_Water_Requirement irrigation_water_requirement);
 	Count_Requirement_Bymonth count_requirement_bymonth(int month);
 	Count_Requirement_Byyear count_requirement_byyear(int year);
-	
+	List<Irrigation_Water_Requirement> check_someyear_allmonthrequirement(Integer year);
 }

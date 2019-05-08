@@ -46,5 +46,37 @@ public class ManageoperationServiceImpl implements IManageoperationService {
 		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
 		return pi;
 	}
+	@Override
+	public PageInfo queryoperationbyoperation_time(int pageSize, int pageNumber, String operation_time) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("operation_time",operation_time);
+		List<Water_Test_Operation> list = dao.queryoperationbyoperation_time(map);
+		Long total=dao.queryoperationbyoperation_timeCount(operation_time);
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
+	@Override
+	public PageInfo queryoperationbyoperation_name(int pageSize, int pageNumber, String operation_name) {
+		PageInfo pi=new PageInfo();
+		pi.setPageNumber(pageNumber);
+		pi.setPageSize(pageSize);
+		Map<String,Object> map=new HashMap<>();
+		map.put("pageStart",pageSize*(pageNumber-1));
+		map.put("pageSize", pageSize);
+		map.put("operation_name",operation_name);
+		List<Water_Test_Operation> list = dao.queryoperationbyoperation_name(map);
+		Long total=dao.queryoperationbyoperation_nameCount(operation_name);
+		pi.setCount(total);
+		pi.setList(list);
+		pi.setTotal(total%pageSize==0?total/pageSize:total/pageSize+1);
+		return pi;
+	}
 
 }

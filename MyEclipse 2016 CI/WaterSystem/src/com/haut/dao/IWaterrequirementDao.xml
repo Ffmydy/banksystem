@@ -24,4 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="count_requirement_byyear" resultType="Count_Requirement_Byyear">
 		select * from count_year_requirement where year=#{year}
 	</select>
+	<select id="check_someyear_allmonthrequirement" resultType="Irrigation_Water_Requirement" parameterType="Integer">
+		select * from irrigation_water_requirement where year=#{year}
+	</select>
 </mapper>

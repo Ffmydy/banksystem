@@ -72,11 +72,11 @@
 				</c:forEach>
 				<tr>
 					<td colspan="6"><a
-						href="checkoperation.do?pageNumber=1&pageSize=6">首页</a>| <a
-						href="checkoperation.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }"
+						href="queryoperationbyoperation_name.do?pageNumber=1&pageSize=6&operation_name=${operation_name }">首页</a>| <a
+						href="queryoperationbyoperation_name.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }&operation_name=${operation_name }"
 						<c:if test="${PageInfo.pageNumber<=1 }">  onclick="javascript:return false;"</c:if>>上一页</a>
 						<a
-						href="checkoperation.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
+						href="queryoperationbyoperation_name.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }&operation_name=${operation_name }"
 						<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
 						第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
 						(共${PageInfo.count}条数据）</td>

@@ -24,7 +24,7 @@
 						<td>${entrusted_unit.unit_name }</td>
 						<td>${entrusted_unit.unit_address}</td>
 						<td>${entrusted_unit.unit_phonenumber }</td>
-						<td>${entrusted_unit.boss_number}</td>
+						<td><a href="check_current_boss.do?boss_number=${entrusted_unit.boss_number}">${entrusted_unit.boss_number}</a></td>
 					</tr>
 			</table>
 		</div>

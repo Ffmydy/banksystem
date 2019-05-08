@@ -106,5 +106,14 @@ public class WaterEvaporationController {
 		mv.setViewName("/count_evaporation_byyear.jsp");
 		return mv;
 	}
+	@RequestMapping("/check_someyear_allmonth_evaporation.do")
+	public ModelAndView docheck_someyear_allmonth_evaporation(Integer year){
+		ModelAndView mv=new ModelAndView();
+		List<Reservoir_Water_Evaporation> reservoir_water_evaporations=service.check_someyear_allmonth_evaporation(year);
+		mv.addObject("lists", reservoir_water_evaporations);
+		mv.setViewName("/show_someyear_allmonth_evaporation.jsp");
+		return mv;
+	}
+	
 	
 }

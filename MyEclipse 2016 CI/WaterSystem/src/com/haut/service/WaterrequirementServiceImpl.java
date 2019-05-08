@@ -60,5 +60,9 @@ public class WaterrequirementServiceImpl implements IWaterrequirementService {
 		Count_Requirement_Byyear count_requirement_byyear=dao.count_requirement_byyear(year);
 		return count_requirement_byyear;
 	}
+	@Override
+	public List<Irrigation_Water_Requirement> check_someyear_allmonthrequirement(Integer year) {
+		return dao.check_someyear_allmonthrequirement(year);
+	}
 	
 }

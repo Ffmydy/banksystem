@@ -64,4 +64,9 @@ public class WaterevaporationServiceImpl implements IWaterevaporationService {
 		return dao.count_evaporation_byyear(year);
 	}
 
+	@Override
+	public List<Reservoir_Water_Evaporation> check_someyear_allmonth_evaporation(Integer year) {
+		return dao.check_someyear_allmonth_evaporation(year);
+	}
+
 }

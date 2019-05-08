@@ -15,5 +15,6 @@ public interface IWaterevaporationDao {
 	Reservoir_Water_Evaporation check_somemonth_water_evaporation(int year, int month);
 	Count_Evaporation_Bymonth count_evaporation_bymonth(int month);
 	Count_Evaporation_Byyear count_evaporation_byyear(int year);
+	List<Reservoir_Water_Evaporation> check_someyear_allmonth_evaporation(Integer year);
 }
 

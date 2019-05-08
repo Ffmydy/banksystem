@@ -78,7 +78,7 @@
 					<td>月份</td>
 					<td>月需水量</td>
 				</tr>
-				<c:forEach items="${PageInfo.list}" var="pi">
+				<c:forEach items="${lists }" var="pi">
 					<tr>
 						<td>${pi.water_requirement_id }</td>
 						<td>${pi.year}</td>
@@ -86,18 +86,6 @@
 						<td>${pi.water_requirement }</td>
 					</tr>
 				</c:forEach>
-				<tr>
-					<td colspan="4"><a
-						href="checkwater_requirement.do?pageNumber=1&pageSize=12">首页</a>|
-						<a
-						href="checkwater_requirement.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }"
-						<c:if test="${PageInfo.pageNumber<=1 }">  onclick="javascript:return false;"</c:if>>上一页</a>
-						<a
-						href="checkwater_requirement.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
-						<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
-						第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
-						(共${PageInfo.count}条数据) <a href="add_water_requirement.jsp">添加月需水量</a></td>
-				</tr>
 			</table>
 		</div>
 	</div>

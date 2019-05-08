@@ -13,7 +13,7 @@
 		<div class="query">
 		<div class="accuratequery"><font size="4px" color="red">查询某月的具体蒸发量：</font>
 			<form action="check_somemonth_water_evaporation.do" method="post">
-				年份:<input type="text" name="year"/>月份:<select name="month">
+				年份:<input type="text" name="year"/>月份:<select name="month" >
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -33,7 +33,7 @@
 		<br/>
 		<br/>
 		<div class="vaguequery"><font size="4px" color="red">查询某年各月份的具体蒸发量：</font>
-			<form action="">
+			<form action="check_someyear_allmonth_evaporation.do">
 			年份:<input type="text" name="year"/>
 			<input type="submit" value="查询"/>
 			</form>
@@ -42,7 +42,7 @@
 		<br/>
 		<div class="countevaporation_bymonth"><font size="4px" color="red">按月计算蒸发量</font>
 			<form action="count_evaporation_bymonth.do" method="get">
-			月份:<select name="month">
+			月份:<select name="month" style="width: 135px">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>

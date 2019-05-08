@@ -107,4 +107,13 @@ public class WaterRequirementController {
 		mv.setViewName("/count_requirement_byyear.jsp");
 		return mv;
 	}
+	@RequestMapping("/check_someyear_allmonthrequirement.do")
+	public ModelAndView docheck_someyear_allmonthrequirement(Integer year){
+		ModelAndView mv=new ModelAndView();
+		List<Irrigation_Water_Requirement> irrigation_water_requirements=service.check_someyear_allmonthrequirement(year);
+		//System.out.println("----"+irrigation_water_requirements);
+		mv.addObject("lists", irrigation_water_requirements);
+		mv.setViewName("/show_someyear_allmonth_requirement.jsp");
+		return mv;
+	}
 }

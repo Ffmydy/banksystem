@@ -15,4 +15,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryoperationbyoperation_managenameCount" resultType="Long">
 		select count(*) from water_test_operation where operation_managename=#{operation_managename}
 	</select>
+	<select id="queryoperationbyoperation_time" resultType="Water_Test_Operation" parameterType="map">
+		select * from water_test_operation where operation_time=#{operation_time} limit #{pageStart},#{pageSize}
+	</select>
+	<select id="queryoperationbyoperation_timeCount" resultType="Long">
+		select count(*) from water_test_operation where operation_time=#{operation_time}
+	</select>
+	<select id="queryoperationbyoperation_name" resultType="Water_Test_Operation" parameterType="map">
+		select * from water_test_operation where operation_name=#{operation_name} limit #{pageStart},#{pageSize}
+	</select>
+	<select id="queryoperationbyoperation_nameCount" resultType="Long">
+		select count(*) from water_test_operation where operation_name=#{operation_name}
+	</select>
 </mapper>
