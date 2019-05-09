@@ -5,6 +5,7 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="css/mycss.css" />
+<script type="text/javascript" src="js/echarts-all.js"></script>
 </head>
 <body>
 	<jsp:include page="model.jsp" />
@@ -37,6 +38,10 @@
 			年份:<input type="text" name="year"/>
 			<input type="submit" value="表格显示"/>
 			</form>
+			<form action="check_someyear_allmonth_evaporationechart.do">
+			年份:<input type="text" name="year"/>
+			<input type="submit" value="图表显示"/>
+			</form>
 		</div>
 		<br/>
 		<br/>
@@ -68,36 +73,34 @@
 			</form>
 		</div>
 		</div>
-		<div class="table" id="table">
-			<table border="1px">
-				<tr class="head" id="water_evaporation">
-					<td>需水记录序号</td>
-					<td>年份</td>
-					<td>月份</td>
-					<td>月蒸发量</td>
-				</tr>
-				<c:forEach items="${PageInfo.list}" var="pi">
-					<tr>
-						<td>${pi.water_evaporation_id }</td>
-						<td>${pi.year}</td>
-						<td>${pi.month}</td>
-						<td>${pi.water_evaporation}</td>
-					</tr>
-				</c:forEach>
-				<tr>
-					<td colspan="4"><a
-						href="checkwater_evaporation.do?pageNumber=1&pageSize=12">首页</a>|
-						<a
-						href="checkwater_evaporation.do?pageNumber=${PageInfo.pageNumber-1 }&pageSize=${PageInfo.pageSize }"
-						<c:if test="${PageInfo.pageNumber<=1 }">  onclick="javascript:return false;"</c:if>>上一页</a>
-						<a
-						href="checkwater_evaporation.do?pageNumber=${PageInfo.pageNumber+1 }&pageSize=${PageInfo.pageSize }"
-						<c:if test="${PageInfo.pageNumber>=PageInfo.total}">  onclick="javascript:return false;"</c:if>>下一页</a>
-						第${PageInfo.pageNumber}页/ 共${PageInfo.total}页
-						(共${PageInfo.count}条数据) <a href="add_water_evaporation.jsp">添加月蒸发量</a></td>
-				</tr>
-			</table>
+		<div class="table" id="table">	  
+              <!-- 柱状图bar -->
+			 <div id="echarts_bar" style="width: 600px;height:400px;"></div>
 		</div>
 	</div>
+	<script type="text/javascript">
+	var myChart = echarts.init(document.getElementById('echarts_bar'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '每月水蒸发量'
+            },
+            tooltip: {},
+            legend: {
+                data:['蒸发量']
+            },
+            xAxis: {
+                data: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+            },
+            yAxis: {},
+            series: [{
+                name: '降水量',
+                type: 'bar',
+                data: []
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+	</script>
 </body>
 </html>

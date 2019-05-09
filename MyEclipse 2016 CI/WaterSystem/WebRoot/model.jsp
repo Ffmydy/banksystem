@@ -96,6 +96,9 @@
 							<p class="zcd" id="zcd15">
 								<a href="checkwater_evaporation.do">各月份水蒸发量</a>
 							</p>
+							<p class="zcd" id="zcd16">
+								<a href="echartevaporation.jsp">图表查询</a>
+							</p>
 						</div></li>
 
 					<li class="menu-list-01"><a href="#">

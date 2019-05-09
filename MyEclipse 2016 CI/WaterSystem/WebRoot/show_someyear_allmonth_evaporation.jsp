@@ -35,7 +35,11 @@
 		<div class="vaguequery"><font size="4px" color="red">查询某年各月份的具体蒸发量：</font>
 			<form action="check_someyear_allmonth_evaporation.do">
 			年份:<input type="text" name="year"/>
-			<input type="submit" value="查询"/>
+			<input type="submit" value="表格显示"/>
+			</form>
+			<form action="check_someyear_allmonth_evaporationechart.do">
+			年份:<input type="text" name="year"/>
+			<input type="submit" value="图表显示"/>
 			</form>
 		</div>
 		<br/>

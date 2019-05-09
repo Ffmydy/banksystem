@@ -1,10 +1,13 @@
 package com.haut.handlers;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.nutz.lang.util.NutMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.haut.beans.Count_Evaporation_Bymonth;
 import com.haut.beans.Count_Evaporation_Byyear;
+import com.haut.beans.EchartsEntity;
 import com.haut.beans.PageInfo;
 import com.haut.beans.Reservoir_Water_Evaporation;
 import com.haut.service.IWaterevaporationService;
@@ -110,9 +114,40 @@ public class WaterEvaporationController {
 	public ModelAndView docheck_someyear_allmonth_evaporation(Integer year){
 		ModelAndView mv=new ModelAndView();
 		List<Reservoir_Water_Evaporation> reservoir_water_evaporations=service.check_someyear_allmonth_evaporation(year);
+		//System.out.println(reservoir_water_evaporations.get(0).getWater_evaporation());
 		mv.addObject("lists", reservoir_water_evaporations);
 		mv.setViewName("/show_someyear_allmonth_evaporation.jsp");
 		return mv;
+	}
+	@RequestMapping("/check_someyear_allmonth_evaporationechart.do")
+	public NutMap docheck_someyear_allmonth_evaporationechart(Integer year){
+		//System.out.println(year);
+		NutMap nutMap = new NutMap();
+		List<EchartsEntity> list=new ArrayList<>();
+		double eva[]=new double[12];
+		List<Reservoir_Water_Evaporation> reservoir_water_evaporations=service.check_someyear_allmonth_evaporation(year);
+		//System.out.println(reservoir_water_evaporations.get(0).getWater_evaporation());
+		for(int i=0;i<reservoir_water_evaporations.size();i++){
+		eva[i]=reservoir_water_evaporations.get(i).getWater_evaporation();
+		}
+		list.add(new EchartsEntity("一月",eva[0]));
+		list.add(new EchartsEntity("二月",eva[1]));
+		list.add(new EchartsEntity("三月",eva[2]));
+		list.add(new EchartsEntity("四月",eva[3]));
+		list.add(new EchartsEntity("五月",eva[4]));
+		list.add(new EchartsEntity("六月",eva[5]));
+		list.add(new EchartsEntity("七月",eva[6]));
+		list.add(new EchartsEntity("八月",eva[7]));
+		list.add(new EchartsEntity("九月",eva[8]));
+		list.add(new EchartsEntity("十月",eva[9]));
+		list.add(new EchartsEntity("十一月",eva[10]));
+		list.add(new EchartsEntity("十二月",eva[11]));
+		System.out.println(list.get(1).getEvapCapacity());
+		nutMap.put("list", list);
+		nutMap.put("status", "ok");
+	    //System.out.println(nutMap);
+        return nutMap;
+     
 	}
 	
 	
